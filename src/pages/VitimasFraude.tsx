@@ -206,34 +206,34 @@ function HeroSection() {
 
             <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 min-h-[100svh] md:min-h-screen flex flex-col justify-start pt-20 md:justify-center md:pt-0">
                 <div className="md:max-w-[62%] lg:max-w-[58%]">
-                    <div className="inline-flex items-center gap-2 mb-5 md:mb-6 px-3 py-1.5 rounded-full border border-[rgba(192,57,43,0.25)] bg-[rgba(192,57,43,0.06)]">
-                        <AlertTriangle className="w-3.5 h-3.5 text-gold" aria-hidden />
-                        <span className="text-xs text-gold uppercase tracking-[0.18em] font-medium">
+                    <div className="inline-flex items-center gap-2 mb-6 md:mb-7 px-3.5 py-2 rounded-full border border-[rgba(192,57,43,0.25)] bg-[rgba(192,57,43,0.06)]">
+                        <AlertTriangle className="w-4 h-4 text-gold" aria-hidden />
+                        <span className="text-[0.78rem] sm:text-[0.8rem] text-gold uppercase tracking-[0.18em] font-semibold">
                             Para vítimas de golpes de investimento
                         </span>
                     </div>
 
                     <h1
-                        className="font-heading text-[clamp(1.875rem,7vw,3.5rem)] md:text-[clamp(2rem,5vw,3.5rem)] leading-[1.02] text-text-primary mb-4 md:mb-5"
+                        className="font-heading text-[clamp(2.25rem,9vw,4rem)] md:text-[clamp(2.5rem,5.5vw,4rem)] leading-[1.05] text-text-primary mb-5 md:mb-6"
                         style={{ fontWeight: 600, letterSpacing: "-0.03em" }}
                     >
                         Você foi vítima de fraude financeira?
                     </h1>
 
                     <p
-                        className="font-heading text-[clamp(1.125rem,3.5vw,1.75rem)] md:text-[clamp(1.25rem,2.5vw,1.875rem)] leading-[1.2] text-gold-accent mb-5 md:mb-6"
+                        className="font-heading text-[clamp(1.375rem,4.8vw,2rem)] md:text-[clamp(1.5rem,2.75vw,2.125rem)] leading-[1.22] text-gold-accent mb-6 md:mb-7"
                         style={{ fontWeight: 500, letterSpacing: "-0.015em" }}
                     >
                         Descobrimos quem está por trás e onde está o dinheiro.
                     </p>
 
                     <p
-                        className="text-[#B8A8A8] text-[0.95rem] md:text-base lg:text-lg max-w-xl mb-7 md:mb-8"
-                        style={{ lineHeight: 1.6 }}
+                        className="text-[#C9BEBE] text-[1.0625rem] md:text-lg lg:text-xl max-w-xl mb-8 md:mb-10"
+                        style={{ lineHeight: 1.7 }}
                     >
                         Identificamos a autoria das fraudes, rastreamos o fluxo de capital e
                         criptoativos, e desvendamos a estrutura financeira oculta.{" "}
-                        <span className="text-text-primary">
+                        <span className="text-text-primary font-medium">
                             Viabilizamos a recuperação e conduzimos todo o processo sob absoluto
                             sigilo, sem expor sua identidade.
                         </span>
@@ -244,13 +244,13 @@ function HeroSection() {
                             href={buildWhatsAppUrl(WHATSAPP_MSG_HERO)}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn-primary text-base group inline-flex uppercase tracking-wide"
+                            className="btn-primary text-base sm:text-lg group inline-flex uppercase tracking-wide py-4"
                         >
-                            <WhatsAppIcon className="w-5 h-5" />
+                            <WhatsAppIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                             Quero resolver isso
-                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden />
+                            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" aria-hidden />
                         </a>
-                        <span className="text-text-muted text-sm">
+                        <span className="text-text-muted text-[0.9rem] sm:text-sm">
                             Resposta em até 10 minutos · Sigilo absoluto
                         </span>
                     </div>
