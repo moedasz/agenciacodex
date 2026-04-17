@@ -6,9 +6,7 @@ import {
     Bitcoin,
     Building2,
     ChevronDown,
-    FileCheck,
     Fingerprint,
-    Gavel,
     Landmark,
     LineChart,
     Network,
@@ -17,7 +15,6 @@ import {
     Target,
     TrendingUp,
     UserX,
-    Zap,
 } from "lucide-react";
 import { Seo } from "../components/Seo";
 import { WhatsAppIcon } from "../components/WhatsAppIcon";
@@ -34,10 +31,6 @@ const WHATSAPP_MSG_HERO =
     "Olá! Fui vítima de uma fraude financeira e gostaria de uma avaliação sigilosa do meu caso.";
 const WHATSAPP_MSG_AVALIAR =
     "Olá! Perdi dinheiro em um golpe de investimento e gostaria de uma avaliação técnica.";
-const WHATSAPP_MSG_CRIPTO =
-    "Olá! Fui vítima de um golpe envolvendo criptomoedas e quero saber se há como rastrear.";
-const WHATSAPP_MSG_PIRAMIDE =
-    "Olá! Investi em uma pirâmide/esquema financeiro e preciso de ajuda técnica.";
 const WHATSAPP_MSG_CTA =
     "Olá! Quero uma avaliação do meu caso de fraude financeira pelo WhatsApp.";
 
@@ -45,32 +38,32 @@ const FRAUD_TYPES = [
     {
         icon: TrendingUp,
         title: "Plataformas de investimento fantasma",
-        desc: "Falsas corretoras que exibem \"lucros\" em tela, mas bloqueiam saques. Promessas de 20% ao mês, atendimento via WhatsApp e domínio que some de um dia para o outro.",
+        desc: "Falsas corretoras que exibem \"lucros\" em tela, mas bloqueiam saques. Promessas de 20% ao mês e domínio que some de um dia para o outro.",
     },
     {
         icon: Network,
         title: "Pirâmides financeiras e Ponzi",
-        desc: "Esquemas de recrutamento disfarçados de \"clube\", \"comunidade\", \"franquia digital\" ou MLM. Pagam aos primeiros com o dinheiro dos últimos até colapsar.",
+        desc: "Esquemas de recrutamento disfarçados de \"clube\", \"comunidade\", \"franquia digital\" ou MLM — pagam os primeiros com o dinheiro dos últimos até colapsar.",
     },
     {
         icon: LineChart,
         title: "Opções binárias e forex laranja",
-        desc: "Corretoras estrangeiras não autorizadas pela CVM, copy trade milagroso, robôs de sinais e gurus que cobram mentoria para direcionar você ao próprio esquema.",
+        desc: "Corretoras não autorizadas pela CVM, copy trade milagroso, robôs de sinais e gurus que cobram mentoria para te empurrar ao próprio esquema.",
     },
     {
         icon: Bitcoin,
         title: "Golpes com criptomoedas",
-        desc: "Exchanges falsas, tokens rug pull, airdrops maliciosos, contratos de mineração fake, golpe do amor (\"pig butchering\") e clonagem de carteiras e chaves Pix.",
+        desc: "Exchanges falsas, rug pull, airdrops maliciosos, contratos de mineração fake, golpe do amor (\"pig butchering\") e clonagem de carteiras.",
     },
     {
         icon: Banknote,
         title: "Consórcio e crédito fantasma",
-        desc: "Promessa de carta contemplada, empréstimo com \"taxa antecipada\", financiamento sem juros e contratos digitais fraudulentos que nunca são cumpridos.",
+        desc: "Carta contemplada fake, \"taxa antecipada\", financiamento sem juros e contratos digitais fraudulentos que nunca se cumprem.",
     },
     {
         icon: Building2,
         title: "Imóveis, franquias e negócios fake",
-        desc: "Investimentos em loteamentos inexistentes, franquias que nunca abriram, sócios que somem com o capital e CNPJs de fachada usados para lavagem.",
+        desc: "Loteamentos que não existem, franquias que nunca abriram, sócios que somem com o capital e CNPJs de fachada usados para lavagem.",
     },
 ];
 
@@ -78,80 +71,49 @@ const WHAT_WE_DO = [
     {
         icon: Fingerprint,
         title: "Identificamos quem está por trás",
-        desc: "Rastreamos o CPF e CNPJ reais atrás do laranja, da conta de fachada, do perfil anônimo e do número de WhatsApp usado para te atrair.",
+        desc: "Revelamos o CPF e CNPJ reais por trás do laranja, da conta de fachada, do perfil anônimo e do número usado para te atrair.",
     },
     {
         icon: Search,
         title: "Mapeamos o fluxo do dinheiro",
-        desc: "Cruzamos chaves Pix, contas bancárias, carteiras de cripto, transferências e empresas vinculadas para reconstruir para onde foi o seu valor.",
+        desc: "Cruzamos chaves Pix, contas bancárias, carteiras cripto e empresas vinculadas para reconstruir para onde foi o seu valor.",
     },
     {
         icon: Landmark,
         title: "Localizamos bens e patrimônio",
-        desc: "Levantamos imóveis, veículos, participações societárias, procurações, offshore aparentes e movimentações recentes que indicam patrimônio alcançável.",
+        desc: "Levantamos imóveis, veículos, participações societárias e movimentações que indicam patrimônio alcançável.",
     },
     {
         icon: Target,
-        title: "Conectamos você a outras vítimas",
-        desc: "Identificamos se há quadrilha, se o mesmo operador atuou em outros casos e se existe ação coletiva em andamento que fortaleça o seu.",
-    },
-    {
-        icon: FileCheck,
-        title: "Entregamos um relatório técnico",
-        desc: "Documento com evidências, prints, registros e cadeia de custódia. Serve para o seu advogado, para B.O., delegacia de defraudações e MP.",
-    },
-    {
-        icon: Gavel,
-        title: "Trabalhamos junto com seu advogado",
-        desc: "Se você já tem defesa, integramos provas ao processo. Se ainda não, indicamos profissionais que atuam em crimes financeiros no seu estado.",
-    },
-];
-
-const STEPS = [
-    {
-        icon: WhatsAppIcon,
-        step: "01",
-        title: "Conte o que aconteceu",
-        desc: "Mande uma mensagem no WhatsApp. Um especialista responde em minutos, sem formulário, sem julgamento e 100% sigiloso.",
-    },
-    {
-        icon: Search,
-        step: "02",
-        title: "Avaliação técnica em até 48h",
-        desc: "Olhamos prints, contratos, contas e domínios. Dizemos se temos como ajudar e, se sim, quanto custa e qual o prazo.",
-    },
-    {
-        icon: Zap,
-        step: "03",
-        title: "Provas e relatório na sua mão",
-        desc: "Em 7 a 30 dias, você recebe um dossiê técnico pronto para advogado, delegacia ou Ministério Público. Sem letra miúda.",
+        title: "Conduzimos o caso do início ao fim",
+        desc: "Conforme o escopo acordado, cuidamos de tudo — investigação, inteligência cibernética, dossiê, interlocução com autoridades e acompanhamento até o desfecho. Você não precisa costurar cada etapa.",
     },
 ];
 
 const TESTIMONIALS = [
     {
-        text: "Perdi R$47 mil numa plataforma de trade que prometia 12% ao mês. O suporte sumiu. A Bforense identificou o operador brasileiro por trás do domínio russo, rastreou o Pix e entregou o dossiê ao meu advogado. Recuperei boa parte judicialmente em 6 meses.",
+        text: "Perdi R$47 mil numa plataforma de trade que prometia 12% ao mês. O suporte sumiu. A Bforense identificou o operador brasileiro por trás do domínio russo, rastreou o Pix e conduziu o caso. Recuperei boa parte em 6 meses.",
         name: "Marcos V.",
         location: "Florianópolis, SC",
         type: "Plataforma fake",
         avatar: "/img/avatars/men-32",
     },
     {
-        text: "Entrei numa \"comunidade de cripto\" com promessa de mineração em nuvem. Quando percebi o golpe, já eram R$ 22 mil. A Bforense identificou três laranjas, todos no mesmo núcleo familiar, e a estrutura de empresas que lavava o dinheiro. Entrou ação coletiva com mais 40 vítimas.",
+        text: "Entrei numa \"comunidade de cripto\" com promessa de mineração em nuvem. Quando percebi o golpe, já eram R$22 mil. A Bforense identificou três laranjas do mesmo núcleo familiar e a estrutura de empresas que lavava o dinheiro. Virou ação coletiva com mais 40 vítimas.",
         name: "Thiago B.",
         location: "Brasília, DF",
         type: "Golpe com criptomoedas",
         avatar: "/img/avatars/men-45",
     },
     {
-        text: "Meu pai, aposentado, entrou numa pirâmide de \"franquia digital\" e colocou R$80 mil. Todo mundo falava para esquecer. A Bforense levantou o CNPJ real, os sócios ocultos e imóveis em nome da esposa do dono. Estamos na Justiça com base concreta.",
+        text: "Meu pai, aposentado, colocou R$80 mil numa pirâmide de \"franquia digital\". Todo mundo falou para esquecer. A Bforense levantou o CNPJ real, os sócios ocultos e imóveis em nome da esposa do dono. Caso voltou a andar com base concreta.",
         name: "Juliana A.",
         location: "Santo André, SP",
         type: "Pirâmide financeira",
         avatar: "/img/avatars/women-33",
     },
     {
-        text: "Caí no golpe do Pix de \"investimento em carro\" e transferi R$12 mil. A polícia não dava retorno. A Bforense identificou o dono real da conta, o endereço e outros anúncios falsos dele. Delegado reabriu o caso. Preso em 3 semanas.",
+        text: "Caí no golpe do Pix de \"investimento em carro\" e transferi R$12 mil. A polícia não dava retorno. A Bforense identificou o dono real da conta, o endereço e outros anúncios falsos dele. O caso foi reaberto. Preso em 3 semanas.",
         name: "Eduardo P.",
         location: "Porto Alegre, RS",
         type: "Golpe do Pix",
@@ -163,37 +125,32 @@ const FAQ_ITEMS = [
     {
         question: "Vocês recuperam meu dinheiro?",
         answer:
-            "Tecnicamente, não — e é importante você entender por quê. Recuperação de valor é um ato jurídico: quem executa é a Justiça (via bloqueio de contas, penhora ou sentença) ou um acordo conduzido pelo seu advogado. Nossa função é outra, e é a que normalmente está faltando: investigação e inteligência cibernética. Identificamos o responsável real, rastreamos o dinheiro e localizamos o patrimônio. Quando a vítima chega ao advogado já com esse dossiê em mãos, a recuperação aparece como consequência natural — casos arquivados voltam a andar, bens são bloqueados e valores são restituídos. Somos o meio que torna esse fim possível.",
+            "Recuperação de valor é um ato jurídico — quem executa é a Justiça ou um acordo formal. Nossa função é outra, e é a que normalmente está faltando: investigação particular e inteligência cibernética. Identificamos o responsável real, rastreamos o dinheiro e localizamos o patrimônio. Quando isso é feito direito, a recuperação aparece como consequência natural. Somos o meio que torna esse fim possível — e conduzimos o caso até o desfecho conforme o escopo acordado.",
+    },
+    {
+        question: "Como funciona do começo ao fim?",
+        answer:
+            "Você manda uma mensagem no WhatsApp. Em até 48h damos uma avaliação técnica com diagnóstico, prazo e custo. Se fechar, assumimos o caso: coleta de rastros, rastreamento financeiro, localização patrimonial, dossiê e — a depender do escopo — interlocução com autoridades e acompanhamento até a medida final. Não ficamos te passando de mão em mão.",
     },
     {
         question: "E se o golpista estiver fora do Brasil?",
         answer:
-            "Na maioria dos golpes \"internacionais\" com vítimas brasileiras, o operador, a conta bancária e o laranja estão no Brasil. Sites e corretoras com fachada estrangeira quase sempre têm um responsável nacional identificável. Quando o núcleo é realmente externo, indicamos caminhos de cooperação internacional e instâncias como Interpol, mas informamos com transparência quando a chance é baixa.",
+            "Na maioria dos golpes \"internacionais\" com vítimas brasileiras, o operador, a conta e o laranja estão no Brasil. Quando o núcleo é realmente externo, informamos com transparência antes de fechar e desenhamos um escopo que faça sentido — ou te dizemos honestamente que a chance é baixa.",
     },
     {
         question: "Quanto tempo depois do golpe ainda dá para investigar?",
         answer:
-            "Quanto mais cedo, melhor. Nos primeiros 30 dias é possível pegar rastros digitais, DNS, hospedagem e movimentações ainda quentes. Depois de 6 meses boa parte evapora. Ainda assim, já reabrimos casos de 2 e 3 anos com sucesso, principalmente quando há CNPJ, imóvel ou patrimônio visível em nome dos envolvidos.",
+            "Quanto mais cedo, melhor. Nos primeiros 30 dias pegamos rastros digitais, DNS, hospedagem e movimentações ainda quentes. Depois de 6 meses boa parte evapora. Ainda assim, já reabrimos casos de 2 e 3 anos com sucesso, principalmente quando há CNPJ, imóvel ou patrimônio visível.",
     },
     {
-        question: "Quanto custa uma investigação de fraude financeira?",
+        question: "Quanto custa?",
         answer:
-            "Depende da complexidade. Levantamentos pontuais (quem está por trás de um CNPJ, rastreamento de uma chave Pix, identificação de um laranja) começam a partir de R$ 890. Investigações completas, com rastreio multi-conta, análise de blockchain, localização patrimonial e relatório técnico para juízo, ficam em média entre R$ 3.500 e R$ 12.000. Só cobramos depois de avaliar o caso e fechar escopo claro com você.",
+            "Depende da complexidade. Levantamentos pontuais começam a partir de R$890. Operações completas — rastreio multi-conta, análise de blockchain, localização patrimonial e dossiê técnico — ficam em média entre R$3.500 e R$12.000. Só cobramos depois de avaliar e fechar escopo claro com você.",
     },
     {
         question: "É legal contratar um detetive privado para isso?",
         answer:
-            "Sim. O detetive particular é regulamentado pela Lei Federal 13.432/2017. Trabalhamos com fontes abertas, OSINT, documentos públicos e técnicas lícitas. Não fazemos interceptação telefônica, não quebramos sigilo bancário sem ordem judicial e não executamos prisões. Entregamos provas colhidas dentro da lei, para serem usadas pelo seu advogado ou pela autoridade competente.",
-    },
-    {
-        question: "Meu caso é pequeno, vale a pena?",
-        answer:
-            "Vale a pena conversar. Fraudes pequenas (abaixo de R$ 5 mil) às vezes compensam quando o mesmo golpista atinge dezenas de pessoas e dá para fazer ação coletiva. Se não for viável, dizemos com franqueza e indicamos o caminho gratuito (Procon, delegacia virtual, app do MP). Preferimos perder um cliente a aceitar um caso sem chance real.",
-    },
-    {
-        question: "Como é o atendimento? Preciso ir até a sede?",
-        answer:
-            "Tudo começa pelo WhatsApp, sigiloso. A maior parte dos clientes nunca precisa ir até nossa sede — operamos para o Brasil inteiro a partir de São Paulo e Porto Alegre. Reuniões são feitas por vídeo quando necessário, e o relatório final chega assinado digitalmente com cadeia de custódia.",
+            "Sim. O detetive particular é regulamentado pela Lei Federal 13.432/2017. Trabalhamos com fontes abertas, OSINT, documentos públicos e técnicas lícitas. Não fazemos interceptação telefônica nem quebramos sigilo bancário sem ordem judicial — e desconfie muito de quem promete isso.",
     },
 ];
 
@@ -201,7 +158,7 @@ const JSON_LD = {
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Investigação de Fraudes Financeiras — Bforense",
-    serviceType: "Investigação privada de vítimas de golpes financeiros",
+    serviceType: "Investigação privada e inteligência cibernética para vítimas de golpes financeiros",
     areaServed: "BR",
     provider: {
         "@type": "ProfessionalService",
@@ -214,7 +171,7 @@ const JSON_LD = {
         audienceType: "Vítimas de fraude financeira, pirâmides, criptomoedas e golpes de investimento",
     },
     description:
-        "Investigação particular e inteligência cibernética para vítimas de fraudes financeiras no Brasil: plataformas fake, pirâmides, golpes de cripto, opções binárias, consórcios fantasma e Pix. Identificação de responsáveis, rastreamento patrimonial e dossiê técnico que seu advogado usa para viabilizar a recuperação judicial.",
+        "Investigação particular e inteligência cibernética para vítimas de fraudes financeiras no Brasil: plataformas fake, pirâmides, golpes de cripto, opções binárias, consórcios fantasma e Pix. Conduzimos o caso do início ao fim conforme escopo.",
 };
 
 function HeroSection() {
@@ -229,7 +186,7 @@ function HeroSection() {
                 }}
             />
             <div className="absolute inset-0 hero-grid-overlay pointer-events-none" aria-hidden />
-            <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-8 pt-28 pb-20 sm:pt-36 sm:pb-28">
+            <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-8 pt-28 pb-20 sm:pt-36 sm:pb-24">
                 <div className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full border border-[rgba(192,57,43,0.25)] bg-[rgba(192,57,43,0.06)]">
                     <AlertTriangle className="w-3.5 h-3.5 text-gold" aria-hidden />
                     <span className="text-xs text-gold uppercase tracking-[0.18em] font-medium">
@@ -249,10 +206,11 @@ function HeroSection() {
                 <p className="text-[#B8A8A8] text-base sm:text-lg max-w-2xl leading-[1.65] mb-8">
                     Plataformas fake, pirâmides, golpes de criptomoedas, opções binárias, Pix e
                     consórcios fantasma. Investigação e inteligência cibernética para identificar o
-                    operador real, rastrear o dinheiro e localizar os bens — entregando o dossiê
-                    técnico que o seu advogado usa na Justiça.{" "}
-                    <span className="text-text-primary">Quando o caminho é feito direito, a
-                    recuperação vira consequência natural.</span>
+                    operador real, rastrear o dinheiro e localizar os bens — conduzindo o caso do
+                    início ao fim.{" "}
+                    <span className="text-text-primary">
+                        Quando o caminho é feito direito, a recuperação vira consequência natural.
+                    </span>
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3 sm:items-center mb-6">
@@ -293,16 +251,18 @@ function HeroSection() {
 
 function FraudTypesSection() {
     return (
-        <section className="px-6 sm:px-8 py-20 sm:py-28 bg-surface-alt">
+        <section className="px-6 sm:px-8 py-20 sm:py-24 bg-surface-alt">
             <div className="max-w-6xl mx-auto">
-                <div className="text-center mb-14">
+                <div className="text-center mb-12">
                     <span className="section-label">Tipos de golpe que investigamos</span>
                     <h2 className="font-heading text-2xl sm:text-3xl text-text-primary">
                         Se você perdeu dinheiro em qualquer um destes,{" "}
                         <span className="text-gold-accent">temos como investigar.</span>
                     </h2>
                     <p className="text-[#B8A8A8] mt-4 max-w-2xl mx-auto text-sm sm:text-base">
-                        A maioria dos golpes financeiros brasileiros reutiliza a mesma estrutura: laranjas, CNPJs de fachada e sites descartáveis. Por isso conseguimos chegar em quem está por trás.
+                        A maioria das fraudes brasileiras reutiliza a mesma estrutura: laranjas,
+                        CNPJs de fachada e sites descartáveis. Por isso conseguimos chegar em
+                        quem está por trás.
                     </p>
                 </div>
 
@@ -323,43 +283,6 @@ function FraudTypesSection() {
                         </div>
                     ))}
                 </div>
-
-                <div className="mt-12 p-6 sm:p-7 rounded-2xl border border-[rgba(192,57,43,0.25)] bg-[rgba(192,57,43,0.04)] max-w-3xl mx-auto">
-                    <p className="text-text-primary text-sm sm:text-base leading-relaxed">
-                        <strong className="text-gold">Seu caso não está na lista?</strong> Fale
-                        conosco mesmo assim. A maior parte das fraudes novas é variação das antigas
-                        — só muda o disfarce. Avaliamos de graça antes de qualquer proposta.
-                    </p>
-                    <div className="mt-4 flex flex-wrap gap-3">
-                        <a
-                            href={buildWhatsAppUrl(WHATSAPP_MSG_CRIPTO)}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-gold hover:text-[#D44637] text-sm font-medium"
-                        >
-                            Golpe com cripto
-                            <ArrowRight className="w-3.5 h-3.5" aria-hidden />
-                        </a>
-                        <a
-                            href={buildWhatsAppUrl(WHATSAPP_MSG_PIRAMIDE)}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-gold hover:text-[#D44637] text-sm font-medium"
-                        >
-                            Pirâmide financeira
-                            <ArrowRight className="w-3.5 h-3.5" aria-hidden />
-                        </a>
-                        <a
-                            href={buildWhatsAppUrl(WHATSAPP_MSG_AVALIAR)}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-gold hover:text-[#D44637] text-sm font-medium"
-                        >
-                            Avaliar meu caso
-                            <ArrowRight className="w-3.5 h-3.5" aria-hidden />
-                        </a>
-                    </div>
-                </div>
             </div>
         </section>
     );
@@ -367,18 +290,18 @@ function FraudTypesSection() {
 
 function WhatWeDoSection() {
     return (
-        <section className="px-6 sm:px-8 py-20 sm:py-28 bg-surface">
-            <div className="max-w-6xl mx-auto">
-                <div className="text-center mb-14">
-                    <span className="section-label">O que você recebe</span>
+        <section className="px-6 sm:px-8 py-20 sm:py-24 bg-surface">
+            <div className="max-w-5xl mx-auto">
+                <div className="text-center mb-12">
+                    <span className="section-label">O que fazemos</span>
                     <h2 className="font-heading text-2xl sm:text-3xl text-text-primary">
                         Não vendemos esperança.{" "}
                         <span className="text-gold-accent">Vendemos evidência.</span>
                     </h2>
                     <p className="text-[#B8A8A8] mt-4 max-w-2xl mx-auto text-sm sm:text-base">
-                        Nosso produto é investigação e inteligência cibernética. Entregue o material
-                        certo ao advogado certo e a recuperação deixa de ser sorte — passa a ser
-                        consequência previsível.
+                        Investigação e inteligência cibernética, do primeiro rastro ao desfecho.
+                        Quando o trabalho técnico é feito direito, a recuperação deixa de ser
+                        sorte — passa a ser consequência previsível.
                     </p>
                 </div>
 
@@ -405,46 +328,6 @@ function WhatWeDoSection() {
                         </div>
                     ))}
                 </div>
-            </div>
-        </section>
-    );
-}
-
-function ProcessSection() {
-    return (
-        <section className="px-6 sm:px-8 py-20 sm:py-28 bg-surface-alt">
-            <div className="max-w-4xl mx-auto">
-                <div className="text-center mb-14">
-                    <span className="section-label">Como funciona</span>
-                    <h2 className="font-heading text-2xl sm:text-3xl text-text-primary">
-                        Do WhatsApp ao <span className="text-gold-accent">dossiê técnico.</span>
-                    </h2>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-                    {STEPS.map((step) => (
-                        <div
-                            key={step.step}
-                            className="text-center p-6 bg-elevation rounded-2xl border border-border-subtle relative"
-                        >
-                            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gold text-bg text-xs font-bold px-3 py-1 rounded-full">
-                                PASSO {step.step}
-                            </div>
-                            <div
-                                className="icon-container-gold mx-auto mb-4 mt-2"
-                                style={{ width: 56, height: 56, borderRadius: 16 }}
-                            >
-                                <step.icon className="w-6 h-6 text-gold" strokeWidth={1.5} aria-hidden />
-                            </div>
-                            <h3 className="font-semibold text-lg text-text-primary mb-2">
-                                {step.title}
-                            </h3>
-                            <p className="text-text-secondary text-sm leading-relaxed">
-                                {step.desc}
-                            </p>
-                        </div>
-                    ))}
-                </div>
 
                 <div className="text-center mt-10">
                     <a
@@ -465,10 +348,10 @@ function ProcessSection() {
 
 function TestimonialsSection() {
     return (
-        <section className="px-6 sm:px-8 py-20 sm:py-28 bg-surface relative overflow-hidden">
+        <section className="px-6 sm:px-8 py-20 sm:py-24 bg-surface-alt relative overflow-hidden">
             <div className="max-w-6xl mx-auto relative z-10">
-                <div className="text-center mb-14">
-                    <span className="section-label">Casos reais de vítimas de fraude</span>
+                <div className="text-center mb-12">
+                    <span className="section-label">Casos reais</span>
                     <h2 className="font-heading text-2xl sm:text-3xl text-text-primary">
                         Onde a investigação chegou primeiro,{" "}
                         <span className="text-gold-accent">a recuperação veio depois.</span>
@@ -538,10 +421,10 @@ function TestimonialsSection() {
 
 function AuthoritySection() {
     return (
-        <section className="px-6 sm:px-8 py-16 sm:py-20 bg-surface-alt">
+        <section className="px-6 sm:px-8 py-16 sm:py-20 bg-surface">
             <div className="max-w-4xl mx-auto">
                 <div className="p-6 sm:p-8 rounded-2xl border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)]">
-                    <div className="flex items-start gap-4 mb-4">
+                    <div className="flex items-start gap-4">
                         <div
                             className="icon-container-gold flex-shrink-0"
                             style={{ width: 48, height: 48, borderRadius: 12 }}
@@ -553,35 +436,17 @@ function AuthoritySection() {
                                 Somos meio. Não somos fim.
                             </h2>
                             <p className="text-text-secondary text-sm sm:text-base leading-relaxed">
-                                Nosso trabalho é regido pela <strong>Lei Federal 13.432/2017</strong>.
-                                Fazemos <strong>investigação particular e inteligência
-                                cibernética</strong> — identificamos responsáveis, rastreamos
-                                fluxos financeiros e localizamos patrimônio, sempre dentro da lei.
-                                Não prometemos recuperar dinheiro porque não é isso que fazemos;
-                                desconfie de quem promete. Mas na prática, quando o material
-                                técnico chega correto na mão do advogado, a recuperação aparece
-                                como <strong>consequência natural</strong> — via bloqueio de contas,
-                                penhora ou acordo. A nossa parte é fazer a causa. O efeito, vem.
+                                Regidos pela <strong>Lei Federal 13.432/2017</strong>. Nosso produto
+                                é <strong>investigação particular e inteligência cibernética</strong>
+                                {" "}— identificamos responsáveis, rastreamos fluxos financeiros e
+                                localizamos patrimônio, sempre dentro da lei. Não prometemos
+                                recuperar dinheiro porque recuperação é ato jurídico, não ato
+                                investigativo; desconfie de quem promete. Mas quando a causa é bem
+                                feita, o efeito aparece — e, a depender do escopo acordado, te
+                                acompanhamos até o desfecho.
                             </p>
                         </div>
                     </div>
-
-                    <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-                        {[
-                            "Avaliação sigilosa e sem compromisso",
-                            "Relatório técnico com cadeia de custódia",
-                            "Atendimento 100% remoto para todo o Brasil",
-                            "Indicação de advogados parceiros quando necessário",
-                        ].map((item) => (
-                            <li key={item} className="flex items-start gap-2 text-text-secondary">
-                                <span
-                                    className="w-1.5 h-1.5 rounded-full bg-gold mt-2 flex-shrink-0"
-                                    aria-hidden
-                                />
-                                {item}
-                            </li>
-                        ))}
-                    </ul>
                 </div>
             </div>
         </section>
@@ -592,10 +457,10 @@ function FaqSection() {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (
-        <section className="px-6 sm:px-8 py-20 sm:py-28 bg-surface">
+        <section className="px-6 sm:px-8 py-20 sm:py-24 bg-surface-alt">
             <div className="max-w-3xl mx-auto">
-                <div className="text-center mb-12">
-                    <span className="section-label">Perguntas frequentes de vítimas</span>
+                <div className="text-center mb-10">
+                    <span className="section-label">Perguntas frequentes</span>
                     <h2 className="font-heading text-2xl sm:text-3xl text-text-primary">
                         O que todo mundo pergunta{" "}
                         <span className="text-gold-accent">antes de contratar.</span>
@@ -630,21 +495,9 @@ function FaqSection() {
                                         isOpen ? "max-h-[600px] pb-5 px-5" : "max-h-0"
                                     }`}
                                 >
-                                    <p className="text-text-secondary leading-relaxed mb-3">
+                                    <p className="text-text-secondary leading-relaxed">
                                         {item.answer}
                                     </p>
-                                    <a
-                                        href={buildWhatsAppUrl(
-                                            "Olá! Tenho uma dúvida sobre vítimas de fraude: " +
-                                                item.question,
-                                        )}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-1.5 text-gold hover:text-[#D44637] text-sm font-medium transition-colors"
-                                    >
-                                        Ainda tem dúvidas? Fale com um especialista
-                                        <ArrowRight className="w-3.5 h-3.5" aria-hidden />
-                                    </a>
                                 </div>
                             </div>
                         );
@@ -658,7 +511,7 @@ function FaqSection() {
 function FinalCta() {
     return (
         <section
-            className="px-6 sm:px-8 py-24 sm:py-32 relative overflow-hidden"
+            className="px-6 sm:px-8 py-20 sm:py-28 relative overflow-hidden"
             style={{ background: "#0F0A0A" }}
         >
             <div
@@ -674,13 +527,10 @@ function FinalCta() {
                     Cada semana sem investigar é uma{" "}
                     <span className="text-gold-accent">prova que some.</span>
                 </h2>
-                <p className="text-text-secondary mb-4 max-w-xl mx-auto">
+                <p className="text-text-secondary mb-8 max-w-xl mx-auto">
                     Domínio expira, conta é esvaziada, CNPJ é baixado, bens vão para laranjas.
-                    Quanto antes começar a investigação, mais rastros estão quentes — e tudo o que
-                    vem depois, inclusive a recuperação, depende disso.
-                </p>
-                <p className="text-red-400/80 text-sm font-medium mb-8">
-                    Vagas limitadas: aceitando apenas 5 novos casos esta semana
+                    Quanto antes começar, mais rastros estão quentes — e tudo o que vem depois
+                    depende disso.
                 </p>
                 <a
                     href={buildWhatsAppUrl(WHATSAPP_MSG_CTA)}
@@ -708,7 +558,7 @@ export function VitimasFraude() {
         <>
             <Seo
                 title="Vítima de Fraude Financeira? Investigação e Inteligência Cibernética | Bforense"
-                description="Fraude em plataforma de investimento, pirâmide, cripto, opções binárias ou Pix? Investigação particular e inteligência cibernética: identificamos o responsável real, rastreamos o dinheiro e localizamos o patrimônio. O dossiê técnico que seu advogado usa para recuperar o valor na Justiça."
+                description="Fraude em plataforma de investimento, pirâmide, cripto, opções binárias ou Pix? Investigação particular e inteligência cibernética do início ao fim: identificamos o responsável real, rastreamos o dinheiro e localizamos o patrimônio."
                 path={PAGE_PATH}
                 jsonLd={JSON_LD}
             />
@@ -718,8 +568,6 @@ export function VitimasFraude() {
                 <FraudTypesSection />
                 <div className="section-divider-glow" />
                 <WhatWeDoSection />
-                <div className="section-divider-glow" />
-                <ProcessSection />
                 <div className="section-divider-glow" />
                 <TestimonialsSection />
                 <div className="section-divider-glow" />
