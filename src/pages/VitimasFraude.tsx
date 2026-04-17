@@ -1,11 +1,9 @@
-import { useState } from "react";
 import {
     AlertTriangle,
     ArrowRight,
     Banknote,
     Bitcoin,
     Building2,
-    ChevronDown,
     Fingerprint,
     Landmark,
     LineChart,
@@ -118,39 +116,6 @@ const TESTIMONIALS = [
         location: "Porto Alegre, RS",
         type: "Golpe do Pix",
         avatar: "/img/avatars/men-67",
-    },
-];
-
-const FAQ_ITEMS = [
-    {
-        question: "Vocês recuperam meu dinheiro?",
-        answer:
-            "Recuperação de valor é um ato jurídico — quem executa é a Justiça ou um acordo formal. Nossa função é outra, e é a que normalmente está faltando: investigação particular e inteligência cibernética. Identificamos o responsável real, rastreamos o dinheiro e localizamos o patrimônio. Quando isso é feito direito, a recuperação aparece como consequência natural. Somos o meio que torna esse fim possível — e conduzimos o caso até o desfecho conforme o escopo acordado.",
-    },
-    {
-        question: "Como funciona do começo ao fim?",
-        answer:
-            "Você manda uma mensagem no WhatsApp. Em até 48h damos uma avaliação técnica com diagnóstico, prazo e custo. Se fechar, assumimos o caso: coleta de rastros, rastreamento financeiro, localização patrimonial, dossiê e — a depender do escopo — interlocução com autoridades e acompanhamento até a medida final. Não ficamos te passando de mão em mão.",
-    },
-    {
-        question: "E se o golpista estiver fora do Brasil?",
-        answer:
-            "Na maioria dos golpes \"internacionais\" com vítimas brasileiras, o operador, a conta e o laranja estão no Brasil. Quando o núcleo é realmente externo, informamos com transparência antes de fechar e desenhamos um escopo que faça sentido — ou te dizemos honestamente que a chance é baixa.",
-    },
-    {
-        question: "Quanto tempo depois do golpe ainda dá para investigar?",
-        answer:
-            "Quanto mais cedo, melhor. Nos primeiros 30 dias pegamos rastros digitais, DNS, hospedagem e movimentações ainda quentes. Depois de 6 meses boa parte evapora. Ainda assim, já reabrimos casos de 2 e 3 anos com sucesso, principalmente quando há CNPJ, imóvel ou patrimônio visível.",
-    },
-    {
-        question: "Quanto custa?",
-        answer:
-            "Depende da complexidade. Levantamentos pontuais começam a partir de R$890. Operações completas — rastreio multi-conta, análise de blockchain, localização patrimonial e dossiê técnico — ficam em média entre R$3.500 e R$12.000. Só cobramos depois de avaliar e fechar escopo claro com você.",
-    },
-    {
-        question: "É legal contratar um detetive privado para isso?",
-        answer:
-            "Sim. O detetive particular é regulamentado pela Lei Federal 13.432/2017. Trabalhamos com fontes abertas, OSINT, documentos públicos e técnicas lícitas. Não fazemos interceptação telefônica nem quebramos sigilo bancário sem ordem judicial — e desconfie muito de quem promete isso.",
     },
 ];
 
@@ -419,95 +384,6 @@ function TestimonialsSection() {
     );
 }
 
-function AuthoritySection() {
-    return (
-        <section className="px-6 sm:px-8 py-16 sm:py-20 bg-surface">
-            <div className="max-w-4xl mx-auto">
-                <div className="p-6 sm:p-8 rounded-2xl border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)]">
-                    <div className="flex items-start gap-4">
-                        <div
-                            className="icon-container-gold flex-shrink-0"
-                            style={{ width: 48, height: 48, borderRadius: 12 }}
-                        >
-                            <ShieldCheck className="w-5 h-5 text-gold" strokeWidth={1.6} aria-hidden />
-                        </div>
-                        <div>
-                            <h2 className="font-heading text-xl sm:text-2xl text-text-primary mb-2">
-                                Somos meio. Não somos fim.
-                            </h2>
-                            <p className="text-text-secondary text-sm sm:text-base leading-relaxed">
-                                Regidos pela <strong>Lei Federal 13.432/2017</strong>. Nosso produto
-                                é <strong>investigação particular e inteligência cibernética</strong>
-                                {" "}— identificamos responsáveis, rastreamos fluxos financeiros e
-                                localizamos patrimônio, sempre dentro da lei. Não prometemos
-                                recuperar dinheiro porque recuperação é ato jurídico, não ato
-                                investigativo; desconfie de quem promete. Mas quando a causa é bem
-                                feita, o efeito aparece — e, a depender do escopo acordado, te
-                                acompanhamos até o desfecho.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
-}
-
-function FaqSection() {
-    const [openIndex, setOpenIndex] = useState<number | null>(0);
-
-    return (
-        <section className="px-6 sm:px-8 py-20 sm:py-24 bg-surface-alt">
-            <div className="max-w-3xl mx-auto">
-                <div className="text-center mb-10">
-                    <span className="section-label">Perguntas frequentes</span>
-                    <h2 className="font-heading text-2xl sm:text-3xl text-text-primary">
-                        O que todo mundo pergunta{" "}
-                        <span className="text-gold-accent">antes de contratar.</span>
-                    </h2>
-                </div>
-                <div>
-                    {FAQ_ITEMS.map((item, i) => {
-                        const isOpen = openIndex === i;
-                        return (
-                            <div
-                                key={item.question}
-                                className="border border-border-subtle rounded-xl mb-3 overflow-hidden bg-elevation hover:border-gold/30 transition-colors"
-                            >
-                                <button
-                                    type="button"
-                                    onClick={() => setOpenIndex(isOpen ? null : i)}
-                                    aria-expanded={isOpen}
-                                    className="w-full p-5 flex items-center justify-between text-left group"
-                                >
-                                    <span className="font-medium text-text-primary group-hover:text-gold transition-colors pr-4">
-                                        {item.question}
-                                    </span>
-                                    <ChevronDown
-                                        aria-hidden
-                                        className={`w-5 h-5 text-gold flex-shrink-0 transition-transform duration-300 ${
-                                            isOpen ? "rotate-180" : ""
-                                        }`}
-                                    />
-                                </button>
-                                <div
-                                    className={`overflow-hidden transition-all duration-300 ${
-                                        isOpen ? "max-h-[600px] pb-5 px-5" : "max-h-0"
-                                    }`}
-                                >
-                                    <p className="text-text-secondary leading-relaxed">
-                                        {item.answer}
-                                    </p>
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>
-            </div>
-        </section>
-    );
-}
-
 function FinalCta() {
     return (
         <section
@@ -570,10 +446,6 @@ export function VitimasFraude() {
                 <WhatWeDoSection />
                 <div className="section-divider-glow" />
                 <TestimonialsSection />
-                <div className="section-divider-glow" />
-                <AuthoritySection />
-                <div className="section-divider-glow" />
-                <FaqSection />
                 <div className="section-divider-glow" />
                 <FinalCta />
             </div>
