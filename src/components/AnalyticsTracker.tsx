@@ -130,6 +130,12 @@ export function AnalyticsTracker() {
                     page: pagePath,
                     label,
                 });
+
+                // Lead is only counted when the user is sent to WhatsApp.
+                trackFacebookEvent("Lead", {
+                    content_name: label,
+                    page: pagePath,
+                });
             }
 
             // Check if it's an email link
@@ -147,17 +153,12 @@ export function AnalyticsTracker() {
                 });
             }
 
-            // Track primary CTA button clicks
+            // Track primary CTA button clicks without marking them as leads.
             if (ctaElement.classList.contains("btn-primary")) {
                 trackGoogleEvent("cta_click", {
                     event_category: "conversion",
                     event_label: label,
                     page_path: pagePath,
-                });
-
-                trackFacebookEvent("Lead", {
-                    content_name: label,
-                    page: pagePath,
                 });
             }
         };

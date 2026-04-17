@@ -27,6 +27,10 @@ export function Footer() {
                             src="/logoagencia.png"
                             alt="Bforense"
                             className="h-9 w-auto opacity-90 mb-4"
+                            width={362}
+                            height={96}
+                            loading="lazy"
+                            decoding="async"
                         />
                         <p className="text-text-muted text-sm leading-relaxed">
                             Agência de investigações privada com atuação nacional.

@@ -31,21 +31,9 @@
   <meta name="twitter:description" content="Investigação particular profissional. Resolva suas dúvidas com quem já solucionou mais de 255 casos em todo o Brasil. Orçamento pelo WhatsApp." />
   <meta name="twitter:image" content="https://www.agenciaprivada.tech/cover-team.webp" />
 
-  <!-- Fonts: Satoshi (body) + Instrument Serif (pull-quotes) + IBM Plex Mono (metadata) -->
-  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,700&display=swap" rel="stylesheet" />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&display=swap" />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
-    rel="stylesheet" media="print" onload="this.media='all'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" /></noscript>
-
   <!-- Preload LCP image (WebP) -->
   <link rel="preload" as="image" type="image/webp" href="/hero-mobile.webp" media="(max-width: 767px)" />
   <link rel="preload" as="image" type="image/webp" href="/hero-desktop.webp" media="(min-width: 768px)" />
-  <link rel="preload" as="image" type="image/webp" href="/cover-team.webp" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/favicon.png" />
@@ -102,35 +90,37 @@
   fbq('track','PageView');
   </script>
 
-  <!-- Deferred analytics loader: GA + GTM + Pixel only after first interaction or idle timeout -->
+  <!-- Analytics loader: GA4 + Meta early for attribution, GTM slightly deferred to protect performance -->
   <script>
   (function(){
-    var loaded=false;
-    function loadTracking(){
-      if(loaded)return; loaded=true;
+    var baseLoaded=false;
+    var gtmLoaded=false;
+    function loadBaseTracking(){
+      if(baseLoaded)return; baseLoaded=true;
       // GA4
       var ga=document.createElement('script');
       ga.async=true; ga.src='https://www.googletagmanager.com/gtag/js?id=G-2XR9JVYQH7';
       document.head.appendChild(ga);
-      // GTM
-      (function(w,d,s,l,i){var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-TGC8HCKT');
       // Facebook Pixel
       var fb=document.createElement('script');
       fb.async=true; fb.src='https://connect.facebook.net/en_US/fbevents.js';
       document.head.appendChild(fb);
-      // cleanup listeners
+    }
+    function loadGtm(){
+      if(gtmLoaded)return; gtmLoaded=true;
+      (function(w,d,s,l,i){var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-TGC8HCKT');
       events.forEach(function(ev){window.removeEventListener(ev,trigger,opts);});
     }
     var events=['scroll','click','touchstart','keydown','mousemove','pointerdown'];
     var opts={passive:true,once:true};
-    function trigger(){loadTracking();}
+    function trigger(){loadGtm();}
     events.forEach(function(ev){window.addEventListener(ev,trigger,opts);});
-    // Fallback: load ~3.5s after window load if user hasn't interacted
-    if(document.readyState==='complete'){setTimeout(loadTracking,3500);}
-    else{window.addEventListener('load',function(){setTimeout(loadTracking,3500);},{once:true});}
+    if(document.readyState==='complete'){setTimeout(loadGtm,2500);}
+    else{window.addEventListener('load',function(){setTimeout(loadGtm,2500);},{once:true});}
+    loadBaseTracking();
   })();
   </script>
 </head>
@@ -142,6 +132,30 @@
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1825486488116021&ev=PageView&noscript=1"/></noscript>
 
   <div id="root">
+    <div aria-hidden="true" style="min-height:100vh;background:#0F0A0A;color:#ECE0E0">
+      <div style="position:fixed;top:0;left:0;right:0;height:64px;background:rgba(10,10,10,0.8);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.04);z-index:1"></div>
+      <div style="padding-top:64px">
+        <section style="min-height:100vh;padding:24px;background:linear-gradient(180deg,#000 0%,#0F0A0A 100%)">
+          <div style="max-width:280px;margin-top:24px">
+            <div style="width:148px;height:12px;border-radius:999px;background:rgba(192,57,43,0.18);margin-bottom:24px"></div>
+            <div style="width:240px;height:44px;border-radius:12px;background:rgba(255,255,255,0.12);margin-bottom:12px"></div>
+            <div style="width:210px;height:44px;border-radius:12px;background:rgba(192,57,43,0.18);margin-bottom:20px"></div>
+            <div style="width:100%;height:14px;border-radius:999px;background:rgba(255,255,255,0.08);margin-bottom:10px"></div>
+            <div style="width:92%;height:14px;border-radius:999px;background:rgba(255,255,255,0.08);margin-bottom:10px"></div>
+            <div style="width:78%;height:14px;border-radius:999px;background:rgba(255,255,255,0.08);margin-bottom:28px"></div>
+            <div style="width:220px;height:52px;border-radius:14px;background:linear-gradient(135deg,#C0392B 0%,#922B21 100%)"></div>
+          </div>
+        </section>
+        <section style="height:320px;border-top:1px solid #4A2A2A;border-bottom:1px solid #4A2A2A;background:#1C0F0F"></section>
+        <section style="height:1200px;background:#0F0A0A"></section>
+        <section style="height:2600px;background:#0F0A0A"></section>
+        <section style="height:4000px;background:#0F0A0A"></section>
+        <section style="height:1300px;background:#0F0A0A"></section>
+        <section style="height:1100px;background:#0F0A0A"></section>
+        <section style="height:700px;background:#0F0A0A"></section>
+        <footer style="height:780px;border-top:1px solid rgba(255,255,255,0.06);background:#1C0F0F"></footer>
+      </div>
+    </div>
     <noscript>
       <div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px;color:#D1CFCB;font-family:Satoshi,sans-serif;background:#0F0A0A">
         <h1 style="font-size:1.5rem;font-weight:800;margin-bottom:8px">Bforense</h1>

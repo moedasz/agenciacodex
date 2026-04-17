@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { useState } from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { buildWhatsAppUrl } from "../../lib/contact";
@@ -57,13 +56,7 @@ export function FAQSection() {
     return (
         <section className="px-6 sm:px-8 py-20 sm:py-28 bg-surface">
             <div className="max-w-3xl mx-auto">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="text-center mb-12"
-                >
+                <div className="text-center mb-12">
                     <span className="section-label">Dúvidas Frequentes</span>
                     <h2 className="font-heading text-2xl sm:text-3xl text-text-primary">
                         Perguntas <span className="text-gold-accent">Frequentes</span>
@@ -71,13 +64,8 @@ export function FAQSection() {
                     <p className="text-text-secondary mt-4">
                         Tire suas dúvidas sobre nossos serviços de investigação particular.
                     </p>
-                </motion.div>
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
-                >
+                </div>
+                <div>
                     {FAQ_ITEMS.map((item, i) => (
                         <FAQItem
                             key={item.question}
@@ -86,7 +74,7 @@ export function FAQSection() {
                             onClick={() => setOpenIndex(openIndex === i ? null : i)}
                         />
                     ))}
-                </motion.div>
+                </div>
             </div>
         </section>
     );

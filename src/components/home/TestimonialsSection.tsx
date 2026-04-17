@@ -1,17 +1,11 @@
-import { motion } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
 import { WhatsAppIcon } from "../WhatsAppIcon";
 import { buildWhatsAppUrl } from "../../lib/contact";
-import { fadeIn } from "../../lib/animations";
 import { TESTIMONIALS, type HomeTestimonial } from "../../data/homeContent";
 
-function TestimonialCard({ testimonial, index }: { testimonial: HomeTestimonial; index: number }) {
+function TestimonialCard({ testimonial }: { testimonial: HomeTestimonial }) {
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
+        <div
             className="relative bg-elevation border border-border-subtle rounded-2xl p-7 sm:p-8 hover:border-[rgba(192,57,43,0.35)] transition-all duration-400 flex flex-col group"
             style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.2)" }}
         >
@@ -57,7 +51,7 @@ function TestimonialCard({ testimonial, index }: { testimonial: HomeTestimonial;
                     {testimonial.type}
                 </span>
             </div>
-        </motion.div>
+        </div>
     );
 }
 
@@ -69,7 +63,7 @@ export function TestimonialsSection() {
                 className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgba(192,57,43,0.04),transparent_70%)] pointer-events-none"
             />
             <div className="max-w-6xl mx-auto relative z-10">
-                <motion.div {...fadeIn} className="text-center mb-14">
+                <div className="text-center mb-14">
                     <span className="section-label">Mais de 255 Casos Resolvidos</span>
                     <h2 className="font-heading text-2xl sm:text-3xl text-text-primary">
                         Histórias Reais de Quem <span className="text-gold-accent">Agiu a Tempo.</span>
@@ -77,15 +71,15 @@ export function TestimonialsSection() {
                     <p className="text-[#B8A8A8] mt-4 max-w-xl mx-auto text-sm sm:text-base">
                         Cada caso abaixo é de um cliente real. Nomes alterados por sigilo.
                     </p>
-                </motion.div>
+                </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     {TESTIMONIALS.map((testimonial, i) => (
-                        <TestimonialCard key={`${testimonial.name}-${i}`} testimonial={testimonial} index={i} />
+                        <TestimonialCard key={`${testimonial.name}-${i}`} testimonial={testimonial} />
                     ))}
                 </div>
 
-                <motion.div {...fadeIn} className="mt-12 text-center">
+                <div className="mt-12 text-center">
                     <p className="text-[#8A7A7A] text-xs mb-6">
                         * Nomes alterados para preservar a identidade dos clientes.
                     </p>
@@ -99,7 +93,7 @@ export function TestimonialsSection() {
                         Quero Resolver Meu Caso
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
-                </motion.div>
+                </div>
             </div>
         </section>
     );

@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { WhatsAppIcon } from "./WhatsAppIcon";
-import { motion, AnimatePresence } from "framer-motion";
 import {
     buildWhatsAppUrl,
     BUSINESS_PHONE_DISPLAY,
@@ -28,9 +27,14 @@ export function Header() {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
         };
-        window.addEventListener("scroll", handleScroll);
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    useEffect(() => {
+        setMobileOpen(false);
+    }, [location.pathname]);
 
     return (
         <header
@@ -48,6 +52,9 @@ export function Header() {
                             src="/logoagencia.png"
                             alt="Bforense"
                             className="h-8 sm:h-10 w-auto"
+                            width={362}
+                            height={96}
+                            decoding="async"
                         />
                     </Link>
 
@@ -115,42 +122,40 @@ export function Header() {
             </div>
 
             {/* Mobile Menu - only on non-home pages */}
-            <AnimatePresence>
-                {mobileOpen && !isHome && (
-                    <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-surface border-b border-[rgba(255,255,255,0.04)] overflow-hidden"
-                    >
-                        <nav className="flex flex-col px-6 py-4 gap-1">
-                            {NAV_LINKS.map((link) => (
-                                <Link
-                                    key={link.href}
-                                    to={link.href}
-                                    onClick={() => setMobileOpen(false)}
-                                    className={`py-3 px-4 rounded-lg text-sm font-medium transition-colors ${
-                                        location.pathname === link.href
-                                            ? "bg-surface-card text-text-primary"
-                                            : "text-text-secondary hover:text-text-primary hover:bg-surface-card"
-                                    }`}
-                                >
-                                    {link.label}
-                                </Link>
-                            ))}
-                            <a
-                                href={buildWhatsAppUrl(DEFAULT_SPECIALIST_MESSAGE)}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="mt-2 flex items-center justify-center gap-2 btn-header font-medium text-sm px-5 py-3 rounded-md"
+            {!isHome && (
+                <div
+                    className={`md:hidden bg-surface border-b border-[rgba(255,255,255,0.04)] overflow-hidden transition-[max-height,opacity] duration-300 ease-out ${
+                        mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                    }`}
+                    aria-hidden={!mobileOpen}
+                >
+                    <nav className="flex flex-col px-6 py-4 gap-1">
+                        {NAV_LINKS.map((link) => (
+                            <Link
+                                key={link.href}
+                                to={link.href}
+                                onClick={() => setMobileOpen(false)}
+                                className={`py-3 px-4 rounded-lg text-sm font-medium transition-colors ${
+                                    location.pathname === link.href
+                                        ? "bg-surface-card text-text-primary"
+                                        : "text-text-secondary hover:text-text-primary hover:bg-surface-card"
+                                }`}
                             >
-                                <WhatsAppIcon className="w-4 h-4" />
-                                Fale conosco
-                            </a>
-                        </nav>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                                {link.label}
+                            </Link>
+                        ))}
+                        <a
+                            href={buildWhatsAppUrl(DEFAULT_SPECIALIST_MESSAGE)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mt-2 flex items-center justify-center gap-2 btn-header font-medium text-sm px-5 py-3 rounded-md"
+                        >
+                            <WhatsAppIcon className="w-4 h-4" />
+                            Fale conosco
+                        </a>
+                    </nav>
+                </div>
+            )}
         </header>
     );
 }

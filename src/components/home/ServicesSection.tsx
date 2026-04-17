@@ -1,21 +1,14 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Check, FileText } from "lucide-react";
 import { WhatsAppIcon } from "../WhatsAppIcon";
 import { buildWhatsAppUrl } from "../../lib/contact";
-import { fadeIn } from "../../lib/animations";
+import { useIsDesktop } from "../../hooks/useIsDesktop";
 import { SERVICES, type HomeService } from "../../data/homeContent";
 
-function ServiceCard({ service, index }: { service: HomeService; index: number }) {
+function ServiceCard({ service }: { service: HomeService }) {
     const Icon = service.icon;
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
-            className="service-card p-6 rounded-xl group h-full flex flex-col"
-        >
+        <div className="service-card p-6 rounded-xl group h-full flex flex-col">
             <div className="icon-container-gold mb-5" style={{ width: 48, height: 48, borderRadius: 12 }}>
                 <Icon className="w-5 h-5 text-gold" strokeWidth={1.5} />
             </div>
@@ -37,32 +30,36 @@ function ServiceCard({ service, index }: { service: HomeService; index: number }
                 Saiba Mais
                 <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
             </Link>
-        </motion.div>
+        </div>
     );
 }
 
 export function ServicesSection() {
+    const isDesktop = useIsDesktop();
+
     return (
         <section id="servicos" className="px-6 sm:px-8 py-20 sm:py-28 relative overflow-hidden scroll-mt-20" style={{ background: "#0F0A0A" }}>
-            <div className="absolute inset-0 z-0 hidden md:block" aria-hidden="true">
-                <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="none"
-                    className="w-full h-full object-cover"
-                    style={{ opacity: 0.35 }}
-                >
-                    <source src="/services-bg.mp4" type="video/mp4" />
-                </video>
-                <div
-                    className="absolute inset-0 bg-gradient-to-b from-[#0F0A0A] via-transparent to-[#0F0A0A]"
-                    style={{ opacity: 0.8 }}
-                />
-            </div>
+            {isDesktop && (
+                <div className="absolute inset-0 z-0" aria-hidden="true">
+                    <video
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="none"
+                        className="w-full h-full object-cover"
+                        style={{ opacity: 0.35 }}
+                    >
+                        <source src="/services-bg.mp4" type="video/mp4" />
+                    </video>
+                    <div
+                        className="absolute inset-0 bg-gradient-to-b from-[#0F0A0A] via-transparent to-[#0F0A0A]"
+                        style={{ opacity: 0.8 }}
+                    />
+                </div>
+            )}
             <div className="max-w-6xl mx-auto relative z-10">
-                <motion.div {...fadeIn} className="text-center mb-6">
+                <div className="text-center mb-6">
                     <span className="section-label">Nossos Serviços</span>
                     <h2 className="font-heading text-2xl sm:text-3xl text-text-primary">
                         Investigações Profissionais para <span className="text-gold-accent">Cada Situação</span>
@@ -71,13 +68,13 @@ export function ServicesSection() {
                         Oferecemos soluções completas com sigilo absoluto e provas válidas em juízo para serem usadas
                         como você bem entender. Cada caso é único, e tratamos assim.
                     </p>
-                </motion.div>
+                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-12">
-                    {SERVICES.map((service, i) => (
-                        <ServiceCard key={service.slug} service={service} index={i} />
+                    {SERVICES.map((service) => (
+                        <ServiceCard key={service.slug} service={service} />
                     ))}
                 </div>
-                <motion.div {...fadeIn} className="text-center mt-12">
+                <div className="text-center mt-12">
                     <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-5 bg-elevation rounded-xl border border-border-subtle">
                         <p className="text-text-secondary text-sm">
                             Não encontrou o que procura? Atendemos{" "}
@@ -93,7 +90,7 @@ export function ServicesSection() {
                             Consultar Especialista
                         </a>
                     </div>
-                </motion.div>
+                </div>
             </div>
         </section>
     );

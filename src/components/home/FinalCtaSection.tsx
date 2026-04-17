@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { WhatsAppIcon } from "../WhatsAppIcon";
 import {
@@ -6,32 +5,36 @@ import {
     buildWhatsAppUrl,
     DEFAULT_CASE_EVALUATION_MESSAGE,
 } from "../../lib/contact";
-import { fadeIn } from "../../lib/animations";
+import { useIsDesktop } from "../../hooks/useIsDesktop";
 
 export function FinalCtaSection() {
+    const isDesktop = useIsDesktop();
+
     return (
         <section className="px-6 sm:px-8 py-24 sm:py-32 relative overflow-hidden" style={{ background: "#0F0A0A" }}>
-            <div className="absolute inset-0 z-0 hidden md:block" aria-hidden="true">
-                <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="none"
-                    className="w-full h-full object-cover"
-                    style={{ opacity: 0.5 }}
-                >
-                    <source src="/cta-bg.mp4" type="video/mp4" />
-                </video>
-                <div
-                    className="absolute inset-0 bg-gradient-to-t from-[#0F0A0A] via-transparent to-[#0F0A0A]"
-                    style={{ opacity: 0.7 }}
-                />
-                <div
-                    className="absolute inset-0 bg-gradient-to-r from-[#0F0A0A] via-transparent to-[#0F0A0A]"
-                    style={{ opacity: 0.5 }}
-                />
-            </div>
+            {isDesktop && (
+                <div className="absolute inset-0 z-0" aria-hidden="true">
+                    <video
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="none"
+                        className="w-full h-full object-cover"
+                        style={{ opacity: 0.5 }}
+                    >
+                        <source src="/cta-bg.mp4" type="video/mp4" />
+                    </video>
+                    <div
+                        className="absolute inset-0 bg-gradient-to-t from-[#0F0A0A] via-transparent to-[#0F0A0A]"
+                        style={{ opacity: 0.7 }}
+                    />
+                    <div
+                        className="absolute inset-0 bg-gradient-to-r from-[#0F0A0A] via-transparent to-[#0F0A0A]"
+                        style={{ opacity: 0.5 }}
+                    />
+                </div>
+            )}
             <div
                 className="glow-orb glow-orb-lg animate-pulse-glow"
                 style={{ top: "30%", left: "10%" }}
@@ -43,7 +46,7 @@ export function FinalCtaSection() {
                 aria-hidden="true"
             />
             <div className="max-w-3xl mx-auto text-center relative z-10">
-                <motion.div {...fadeIn}>
+                <div>
                     <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl text-text-primary mb-4">
                         Cada Dia Sem Agir é uma Prova que{" "}
                         <span className="text-gold-accent">Pode Ser Perdida.</span>
@@ -72,7 +75,7 @@ export function FinalCtaSection() {
                     <p className="text-text-muted text-xs sm:text-sm mt-4 sm:mt-6">
                         Atendemos em todo o Brasil · {BUSINESS_PHONE_DISPLAY}
                     </p>
-                </motion.div>
+                </div>
             </div>
         </section>
     );

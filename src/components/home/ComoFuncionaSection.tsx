@@ -1,8 +1,6 @@
-import { motion } from "framer-motion";
 import { ArrowRight, FileCheck, Zap } from "lucide-react";
 import { WhatsAppIcon } from "../WhatsAppIcon";
 import { buildWhatsAppUrl, DEFAULT_CASE_EVALUATION_MESSAGE } from "../../lib/contact";
-import { fadeIn } from "../../lib/animations";
 
 const STEPS = [
     {
@@ -29,21 +27,17 @@ export function ComoFuncionaSection() {
     return (
         <section className="px-6 sm:px-8 py-20 sm:py-28 bg-surface relative overflow-hidden">
             <div className="max-w-4xl mx-auto relative z-10">
-                <motion.div {...fadeIn} className="text-center mb-14">
+                <div className="text-center mb-14">
                     <span className="section-label">De Suspeita a Certeza Sem Complicação</span>
                     <h2 className="font-heading text-2xl sm:text-3xl text-text-primary">
                         Como Funciona em <span className="text-gold-accent">3 Passos</span>
                     </h2>
-                </motion.div>
+                </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-                    {STEPS.map((step, i) => (
-                        <motion.div
+                    {STEPS.map((step) => (
+                        <div
                             key={step.step}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: i * 0.15 }}
                             className="text-center p-6 bg-elevation rounded-2xl border border-border-subtle relative"
                         >
                             <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gold text-bg text-xs font-bold px-3 py-1 rounded-full">
@@ -54,11 +48,11 @@ export function ComoFuncionaSection() {
                             </div>
                             <h3 className="font-semibold text-lg text-text-primary mb-2">{step.title}</h3>
                             <p className="text-text-secondary text-sm leading-relaxed">{step.desc}</p>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
 
-                <motion.div {...fadeIn} className="text-center mt-10">
+                <div className="text-center mt-10">
                     <a
                         href={buildWhatsAppUrl(DEFAULT_CASE_EVALUATION_MESSAGE)}
                         target="_blank"
@@ -69,7 +63,7 @@ export function ComoFuncionaSection() {
                         Comece Agora
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
-                </motion.div>
+                </div>
             </div>
         </section>
     );

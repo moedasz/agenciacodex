@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Radio } from "lucide-react";
 
@@ -11,13 +10,7 @@ export function OperationsRoomSection() {
     return (
         <section className="ops-room-section">
             <div className="ops-room-inner">
-                <motion.div
-                    initial={{ opacity: 0, scale: 1.04 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, margin: "-80px" }}
-                    transition={{ duration: 1.1, ease: [0.2, 0.8, 0.2, 1] }}
-                    className="ops-room-media"
-                >
+                <div className="ops-room-media">
                     <img
                         src="/operations-room.webp"
                         alt="Sala de operações da Bforense em Porto Alegre, equipe monitorando painéis de inteligência"
@@ -37,15 +30,10 @@ export function OperationsRoomSection() {
                         <span className="ops-room-badge-dot" />
                         <span>LIVE · TODO O BRASIL</span>
                     </div>
-                </motion.div>
+                </div>
 
                 <div className="ops-room-copy">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-60px" }}
-                        transition={{ duration: 0.7, delay: 0.1 }}
-                    >
+                    <div>
                         <div className="dossier-kicker mb-5">
                             <span className="dossier-kicker-dot" aria-hidden />
                             <span>Quem está do outro lado</span>
@@ -58,15 +46,9 @@ export function OperationsRoomSection() {
                             Uma equipe de investigadores e analistas que atende o Brasil inteiro
                             com sede física em São Paulo e Porto Alegre.
                         </p>
-                    </motion.div>
+                    </div>
 
-                    <motion.ul
-                        initial={{ opacity: 0, y: 16 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-60px" }}
-                        transition={{ duration: 0.7, delay: 0.2 }}
-                        className="ops-room-signals"
-                    >
+                    <ul className="ops-room-signals">
                         {SIGNALS.map((s) => {
                             const Icon = s.icon;
                             return (
@@ -81,15 +63,9 @@ export function OperationsRoomSection() {
                                 </li>
                             );
                         })}
-                    </motion.ul>
+                    </ul>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 16 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-60px" }}
-                        transition={{ duration: 0.7, delay: 0.3 }}
-                        className="ops-room-warning"
-                    >
+                    <div className="ops-room-warning">
                         <span className="ops-room-warning-tag">Antes de mandar mensagem</span>
                         <p>
                             Só faça contato se tiver intenção real de contratar. Se for
@@ -100,7 +76,7 @@ export function OperationsRoomSection() {
                             </Link>{" "}
                             para você. De graça, com informação de qualidade.
                         </p>
-                    </motion.div>
+                    </div>
                 </div>
             </div>
         </section>

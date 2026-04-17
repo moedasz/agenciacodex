@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 interface Point {
     x: number;
@@ -13,11 +13,16 @@ export function NetworkBackground() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const animationRef = useRef<number>(0);
     const pointsRef = useRef<Point[]>([]);
+    const [shouldRender, setShouldRender] = useState(() =>
+        typeof window === "undefined"
+            ? false
+            : !window.matchMedia("(max-width: 767px), (prefers-reduced-motion: reduce)").matches,
+    );
 
     const createPoints = useCallback((width: number, height: number): Point[] => {
         const points: Point[] = [];
-        const numPoints = Math.min(40, Math.floor((width * height) / 25000));
-        
+        const numPoints = Math.min(28, Math.floor((width * height) / 38000));
+
         for (let i = 0; i < numPoints; i++) {
             points.push({
                 x: Math.random() * width,
@@ -32,14 +37,29 @@ export function NetworkBackground() {
     }, []);
 
     useEffect(() => {
+        const mediaQuery = window.matchMedia("(max-width: 767px), (prefers-reduced-motion: reduce)");
+
+        const updateVisibility = (event?: MediaQueryListEvent) => {
+            setShouldRender(!(event ? event.matches : mediaQuery.matches));
+        };
+
+        updateVisibility();
+        mediaQuery.addEventListener("change", updateVisibility);
+
+        return () => mediaQuery.removeEventListener("change", updateVisibility);
+    }, []);
+
+    useEffect(() => {
+        if (!shouldRender) {
+            cancelAnimationFrame(animationRef.current);
+            return;
+        }
+
         const canvas = canvasRef.current;
         if (!canvas) return;
 
         const ctx = canvas.getContext("2d");
         if (!ctx) return;
-
-        // Check for reduced motion preference
-        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
         const resize = () => {
             const dpr = window.devicePixelRatio || 1;
@@ -57,10 +77,12 @@ export function NetworkBackground() {
 
         let time = 0;
         const goldColor = { r: 192, g: 57, b: 43 }; // #C0392B crimson
+        const maxDistance = 150;
+        const maxDistanceSquared = maxDistance * maxDistance;
 
         const animate = () => {
             if (!canvas || !ctx) return;
-            
+
             const rect = canvas.getBoundingClientRect();
             ctx.clearRect(0, 0, rect.width, rect.height);
 
@@ -69,17 +91,15 @@ export function NetworkBackground() {
 
             // Update and draw points
             points.forEach((point, i) => {
-                if (!prefersReducedMotion) {
-                    point.x += point.vx;
-                    point.y += point.vy;
+                point.x += point.vx;
+                point.y += point.vy;
 
-                    // Bounce off edges
-                    if (point.x < 0 || point.x > rect.width) point.vx *= -1;
-                    if (point.y < 0 || point.y > rect.height) point.vy *= -1;
+                // Bounce off edges
+                if (point.x < 0 || point.x > rect.width) point.vx *= -1;
+                if (point.y < 0 || point.y > rect.height) point.vy *= -1;
 
-                    // Pulse opacity
-                    point.opacity = 0.3 + Math.sin(time * 2 + point.pulseOffset) * 0.2;
-                }
+                // Pulse opacity
+                point.opacity = 0.3 + Math.sin(time * 2 + point.pulseOffset) * 0.2;
 
                 // Draw point
                 ctx.beginPath();
@@ -92,10 +112,10 @@ export function NetworkBackground() {
                     const other = points[j];
                     const dx = point.x - other.x;
                     const dy = point.y - other.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    const distanceSquared = dx * dx + dy * dy;
 
-                    if (distance < 150) {
-                        const lineOpacity = (1 - distance / 150) * 0.1;
+                    if (distanceSquared < maxDistanceSquared) {
+                        const lineOpacity = (1 - distanceSquared / maxDistanceSquared) * 0.1;
                         ctx.beginPath();
                         ctx.moveTo(point.x, point.y);
                         ctx.lineTo(other.x, other.y);
@@ -115,7 +135,11 @@ export function NetworkBackground() {
             window.removeEventListener("resize", resize);
             cancelAnimationFrame(animationRef.current);
         };
-    }, [createPoints]);
+    }, [createPoints, shouldRender]);
+
+    if (!shouldRender) {
+        return null;
+    }
 
     return (
         <canvas

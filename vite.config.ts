@@ -25,9 +25,7 @@ export default defineConfig({
         rollupOptions: {
             output: {
                 manualChunks: {
-                    "framer": ["framer-motion"],
                     "react-vendor": ["react", "react-dom"],
-                    "imask": ["react-imask"],
                 },
             },
             treeshake: {

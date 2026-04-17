@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
-import { WhatsAppButton } from "./WhatsAppButton";
+import { DesktopWhatsAppButton } from "./DesktopWhatsAppButton";
 
 export function Layout() {
     return (
@@ -11,7 +11,7 @@ export function Layout() {
                 <Outlet />
             </main>
             <Footer />
-            <WhatsAppButton />
+            <DesktopWhatsAppButton />
         </div>
     );
 }
