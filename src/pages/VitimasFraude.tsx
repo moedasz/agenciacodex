@@ -105,11 +105,6 @@ const WHAT_WE_DO = [
         title: "Trabalhamos junto com seu advogado",
         desc: "Se você já tem defesa, integramos provas ao processo. Se ainda não, indicamos profissionais que atuam em crimes financeiros no seu estado.",
     },
-    {
-        icon: Banknote,
-        title: "Viabilizamos a recuperação do valor",
-        desc: "Nosso dossiê é o que destrava bloqueio de contas, penhora de bens e acordos extrajudiciais. Sem prova técnica, o processo paralisa — com ela, a restituição vira possibilidade real.",
-    },
 ];
 
 const STEPS = [
@@ -168,7 +163,7 @@ const FAQ_ITEMS = [
     {
         question: "Vocês recuperam meu dinheiro?",
         answer:
-            "Sim — viabilizamos sua recuperação. O que isso quer dizer na prática: quem executa a devolução do valor é a Justiça (via bloqueio de contas, penhora de bens ou sentença) ou um acordo conduzido pelo seu advogado. Nosso trabalho é indispensável para isso acontecer: sem prova técnica de quem é o responsável, para onde foi o dinheiro e onde está o patrimônio, o processo paralisa e o caso vai para arquivo. Com o nosso dossiê, a taxa de sucesso sobe drasticamente. Já viabilizamos recuperação em centenas de casos — inclusive em fraudes que a polícia havia considerado sem autoria identificada.",
+            "Tecnicamente, não — e é importante você entender por quê. Recuperação de valor é um ato jurídico: quem executa é a Justiça (via bloqueio de contas, penhora ou sentença) ou um acordo conduzido pelo seu advogado. Nossa função é outra, e é a que normalmente está faltando: investigação e inteligência cibernética. Identificamos o responsável real, rastreamos o dinheiro e localizamos o patrimônio. Quando a vítima chega ao advogado já com esse dossiê em mãos, a recuperação aparece como consequência natural — casos arquivados voltam a andar, bens são bloqueados e valores são restituídos. Somos o meio que torna esse fim possível.",
     },
     {
         question: "E se o golpista estiver fora do Brasil?",
@@ -219,7 +214,7 @@ const JSON_LD = {
         audienceType: "Vítimas de fraude financeira, pirâmides, criptomoedas e golpes de investimento",
     },
     description:
-        "Investigação particular para vítimas de fraudes financeiras no Brasil: plataformas fake, pirâmides, golpes de cripto, opções binárias, consórcios fantasma e Pix. Identificação de responsáveis, rastreamento patrimonial e dossiê técnico que viabiliza a recuperação do valor na esfera judicial.",
+        "Investigação particular e inteligência cibernética para vítimas de fraudes financeiras no Brasil: plataformas fake, pirâmides, golpes de cripto, opções binárias, consórcios fantasma e Pix. Identificação de responsáveis, rastreamento patrimonial e dossiê técnico que seu advogado usa para viabilizar a recuperação judicial.",
 };
 
 function HeroSection() {
@@ -248,14 +243,16 @@ function HeroSection() {
                 >
                     Você foi vítima de fraude financeira?
                     <br />
-                    <span className="text-gold-accent">Viabilizamos sua recuperação.</span>
+                    <span className="text-gold-accent">Podemos descobrir quem está por trás.</span>
                 </h1>
 
                 <p className="text-[#B8A8A8] text-base sm:text-lg max-w-2xl leading-[1.65] mb-8">
                     Plataformas fake, pirâmides, golpes de criptomoedas, opções binárias, Pix e
-                    consórcios fantasma. Identificamos o operador real, rastreamos o dinheiro,
-                    localizamos os bens e entregamos o dossiê técnico que <strong className="text-text-primary">transforma o seu caso em restituição</strong> na
-                    esfera civil, criminal ou em acordo direto.
+                    consórcios fantasma. Investigação e inteligência cibernética para identificar o
+                    operador real, rastrear o dinheiro e localizar os bens — entregando o dossiê
+                    técnico que o seu advogado usa na Justiça.{" "}
+                    <span className="text-text-primary">Quando o caminho é feito direito, a
+                    recuperação vira consequência natural.</span>
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3 sm:items-center mb-6">
@@ -276,9 +273,9 @@ function HeroSection() {
 
                 <div className="flex flex-wrap items-center gap-4 sm:gap-6 mt-10 pt-6 border-t border-[rgba(255,255,255,0.06)]">
                     {[
-                        { icon: Banknote, label: "Recuperação viabilizada em centenas de casos" },
                         { icon: ShieldCheck, label: "Lei 13.432/2017" },
-                        { icon: Landmark, label: "São Paulo · Porto Alegre · Brasil" },
+                        { icon: UserX, label: "+255 casos resolvidos" },
+                        { icon: Landmark, label: "São Paulo · Porto Alegre" },
                     ].map((t) => (
                         <span
                             key={t.label}
@@ -302,7 +299,7 @@ function FraudTypesSection() {
                     <span className="section-label">Tipos de golpe que investigamos</span>
                     <h2 className="font-heading text-2xl sm:text-3xl text-text-primary">
                         Se você perdeu dinheiro em qualquer um destes,{" "}
-                        <span className="text-gold-accent">ainda dá para recuperar.</span>
+                        <span className="text-gold-accent">temos como investigar.</span>
                     </h2>
                     <p className="text-[#B8A8A8] mt-4 max-w-2xl mx-auto text-sm sm:text-base">
                         A maioria dos golpes financeiros brasileiros reutiliza a mesma estrutura: laranjas, CNPJs de fachada e sites descartáveis. Por isso conseguimos chegar em quem está por trás.
@@ -375,12 +372,13 @@ function WhatWeDoSection() {
                 <div className="text-center mb-14">
                     <span className="section-label">O que você recebe</span>
                     <h2 className="font-heading text-2xl sm:text-3xl text-text-primary">
-                        Prova técnica que{" "}
-                        <span className="text-gold-accent">viabiliza sua recuperação.</span>
+                        Não vendemos esperança.{" "}
+                        <span className="text-gold-accent">Vendemos evidência.</span>
                     </h2>
                     <p className="text-[#B8A8A8] mt-4 max-w-2xl mx-auto text-sm sm:text-base">
-                        Quem restitui é a Justiça — mas sem o material técnico correto, o processo
-                        não anda. Nosso trabalho é exatamente destravar esse caminho.
+                        Nosso produto é investigação e inteligência cibernética. Entregue o material
+                        certo ao advogado certo e a recuperação deixa de ser sorte — passa a ser
+                        consequência previsível.
                     </p>
                 </div>
 
@@ -472,8 +470,8 @@ function TestimonialsSection() {
                 <div className="text-center mb-14">
                     <span className="section-label">Casos reais de vítimas de fraude</span>
                     <h2 className="font-heading text-2xl sm:text-3xl text-text-primary">
-                        Vítimas que achavam que tinham perdido tudo —{" "}
-                        <span className="text-gold-accent">e recuperaram.</span>
+                        Onde a investigação chegou primeiro,{" "}
+                        <span className="text-gold-accent">a recuperação veio depois.</span>
                     </h2>
                     <p className="text-[#B8A8A8] mt-4 max-w-xl mx-auto text-sm sm:text-base">
                         Nomes alterados. Valores, cidades e mecânica do golpe preservados.
@@ -552,17 +550,18 @@ function AuthoritySection() {
                         </div>
                         <div>
                             <h2 className="font-heading text-xl sm:text-2xl text-text-primary mb-2">
-                                Viabilizamos recuperação de forma séria — e transparente.
+                                Somos meio. Não somos fim.
                             </h2>
                             <p className="text-text-secondary text-sm sm:text-base leading-relaxed">
                                 Nosso trabalho é regido pela <strong>Lei Federal 13.432/2017</strong>.
-                                Não fazemos interceptação, não quebramos sigilo sem ordem judicial
-                                e não cobramos percentual sobre valor recuperado — desconfie de quem
-                                promete isso. O que fazemos, e bem, é <strong>viabilizar sua
-                                recuperação</strong>: identificamos o responsável, rastreamos o
-                                dinheiro e localizamos o patrimônio. É esse dossiê técnico que
-                                transforma o seu processo em bloqueio de contas, penhora de bens
-                                ou acordo — caminhos reais de restituição na Justiça brasileira.
+                                Fazemos <strong>investigação particular e inteligência
+                                cibernética</strong> — identificamos responsáveis, rastreamos
+                                fluxos financeiros e localizamos patrimônio, sempre dentro da lei.
+                                Não prometemos recuperar dinheiro porque não é isso que fazemos;
+                                desconfie de quem promete. Mas na prática, quando o material
+                                técnico chega correto na mão do advogado, a recuperação aparece
+                                como <strong>consequência natural</strong> — via bloqueio de contas,
+                                penhora ou acordo. A nossa parte é fazer a causa. O efeito, vem.
                             </p>
                         </div>
                     </div>
@@ -672,13 +671,13 @@ function FinalCta() {
             />
             <div className="max-w-3xl mx-auto text-center relative z-10">
                 <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl text-text-primary mb-4">
-                    Cada semana sem agir é{" "}
-                    <span className="text-gold-accent">recuperação que escapa.</span>
+                    Cada semana sem investigar é uma{" "}
+                    <span className="text-gold-accent">prova que some.</span>
                 </h2>
                 <p className="text-text-secondary mb-4 max-w-xl mx-auto">
-                    Domínio expira, conta bancária é esvaziada, CNPJ é baixado e bens são
-                    transferidos para laranjas. Quanto antes começarmos, mais rastros estão
-                    quentes — e maior a chance de o dinheiro voltar.
+                    Domínio expira, conta é esvaziada, CNPJ é baixado, bens vão para laranjas.
+                    Quanto antes começar a investigação, mais rastros estão quentes — e tudo o que
+                    vem depois, inclusive a recuperação, depende disso.
                 </p>
                 <p className="text-red-400/80 text-sm font-medium mb-8">
                     Vagas limitadas: aceitando apenas 5 novos casos esta semana
@@ -708,8 +707,8 @@ export function VitimasFraude() {
     return (
         <>
             <Seo
-                title="Vítima de Fraude Financeira? Viabilizamos sua Recuperação | Bforense"
-                description="Fraude em plataforma de investimento, pirâmide, cripto, opções binárias ou Pix? Identificamos o responsável real, rastreamos o dinheiro, localizamos o patrimônio e entregamos o dossiê técnico que viabiliza a recuperação do seu valor na Justiça."
+                title="Vítima de Fraude Financeira? Investigação e Inteligência Cibernética | Bforense"
+                description="Fraude em plataforma de investimento, pirâmide, cripto, opções binárias ou Pix? Investigação particular e inteligência cibernética: identificamos o responsável real, rastreamos o dinheiro e localizamos o patrimônio. O dossiê técnico que seu advogado usa para recuperar o valor na Justiça."
                 path={PAGE_PATH}
                 jsonLd={JSON_LD}
             />
