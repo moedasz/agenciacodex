@@ -88,37 +88,6 @@ const WHAT_WE_DO = [
     },
 ];
 
-const TESTIMONIALS = [
-    {
-        text: "Perdi R$47 mil numa plataforma de trade que prometia 12% ao mês. O suporte sumiu. A Bforense identificou o operador brasileiro por trás do domínio russo, rastreou o Pix e conduziu o caso. Recuperei boa parte em 6 meses.",
-        name: "Marcos V.",
-        location: "Florianópolis, SC",
-        type: "Plataforma fake",
-        avatar: "/img/avatars/men-32",
-    },
-    {
-        text: "Entrei numa \"comunidade de cripto\" com promessa de mineração em nuvem. Quando percebi o golpe, já eram R$22 mil. A Bforense identificou três laranjas do mesmo núcleo familiar e a estrutura de empresas que lavava o dinheiro. Virou ação coletiva com mais 40 vítimas.",
-        name: "Thiago B.",
-        location: "Brasília, DF",
-        type: "Golpe com criptomoedas",
-        avatar: "/img/avatars/men-45",
-    },
-    {
-        text: "Meu pai, aposentado, colocou R$80 mil numa pirâmide de \"franquia digital\". Todo mundo falou para esquecer. A Bforense levantou o CNPJ real, os sócios ocultos e imóveis em nome da esposa do dono. Caso voltou a andar com base concreta.",
-        name: "Juliana A.",
-        location: "Santo André, SP",
-        type: "Pirâmide financeira",
-        avatar: "/img/avatars/women-33",
-    },
-    {
-        text: "Caí no golpe do Pix de \"investimento em carro\" e transferi R$12 mil. A polícia não dava retorno. A Bforense identificou o dono real da conta, o endereço e outros anúncios falsos dele. O caso foi reaberto. Preso em 3 semanas.",
-        name: "Eduardo P.",
-        location: "Porto Alegre, RS",
-        type: "Golpe do Pix",
-        avatar: "/img/avatars/men-67",
-    },
-];
-
 const JSON_LD = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -359,79 +328,6 @@ function WhatWeDoSection() {
     );
 }
 
-function TestimonialsSection() {
-    return (
-        <section className="px-6 sm:px-8 py-20 sm:py-24 bg-surface-alt relative overflow-hidden">
-            <div className="max-w-6xl mx-auto relative z-10">
-                <div className="text-center mb-12">
-                    <span className="section-label">Casos reais</span>
-                    <h2 className="font-heading text-2xl sm:text-3xl text-text-primary">
-                        Onde a investigação chegou primeiro,{" "}
-                        <span className="text-gold-accent">a recuperação veio depois.</span>
-                    </h2>
-                    <p className="text-[#B8A8A8] mt-4 max-w-xl mx-auto text-sm sm:text-base">
-                        Nomes alterados. Valores, cidades e mecânica do golpe preservados.
-                    </p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    {TESTIMONIALS.map((t, i) => (
-                        <div
-                            key={`${t.name}-${i}`}
-                            className="relative bg-elevation border border-border-subtle rounded-2xl p-7 sm:p-8 flex flex-col"
-                            style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.2)" }}
-                        >
-                            <span
-                                aria-hidden
-                                className="absolute top-4 right-6 text-[4rem] leading-none font-serif text-[rgba(192,57,43,0.08)] select-none pointer-events-none"
-                            >
-                                "
-                            </span>
-                            <p className="text-[#ECE0E0] text-[0.95rem] sm:text-base leading-[1.7] flex-1 mb-6">
-                                "{t.text}"
-                            </p>
-                            <div className="flex items-center justify-between pt-5 border-t border-[rgba(74,42,42,0.4)]">
-                                <div className="flex items-center gap-3">
-                                    <div
-                                        className="w-11 h-11 rounded-full border border-[rgba(192,57,43,0.2)] overflow-hidden flex-shrink-0"
-                                        style={{ marginTop: "-3px" }}
-                                        aria-hidden
-                                    >
-                                        <picture>
-                                            <source type="image/avif" srcSet={`${t.avatar}.avif`} />
-                                            <source type="image/webp" srcSet={`${t.avatar}.webp`} />
-                                            <img
-                                                src={`${t.avatar}.webp`}
-                                                alt=""
-                                                aria-hidden
-                                                loading="lazy"
-                                                decoding="async"
-                                                width={44}
-                                                height={44}
-                                                className="w-full h-full object-cover"
-                                                style={{ filter: "blur(3px) brightness(0.8)", transform: "scale(1.15)" }}
-                                            />
-                                        </picture>
-                                    </div>
-                                    <div>
-                                        <p className="text-[#ECE0E0] text-sm font-semibold">
-                                            {t.name}
-                                        </p>
-                                        <p className="text-[#8A7A7A] text-xs">{t.location}</p>
-                                    </div>
-                                </div>
-                                <span className="hidden sm:inline-block px-3 py-1.5 bg-[rgba(192,57,43,0.08)] border border-[rgba(192,57,43,0.15)] rounded-lg text-gold text-xs font-medium">
-                                    {t.type}
-                                </span>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-}
-
 function OperationsSection() {
     return (
         <section className="px-6 sm:px-8 py-20 sm:py-24 bg-surface-alt">
@@ -554,8 +450,6 @@ export function VitimasFraude() {
                 <FraudTypesSection />
                 <div className="section-divider-glow" />
                 <WhatWeDoSection />
-                <div className="section-divider-glow" />
-                <TestimonialsSection />
                 <div className="section-divider-glow" />
                 <OperationsSection />
                 <div className="section-divider-glow" />
