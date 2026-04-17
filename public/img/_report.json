@@ -1,0 +1,198 @@
+[
+  {
+    "src": "hero-mobile.webp",
+    "out": "hero-mobile-480.avif",
+    "width": 480,
+    "fmt": "avif",
+    "bytes": 10933
+  },
+  {
+    "src": "hero-mobile.webp",
+    "out": "hero-mobile-480.webp",
+    "width": 480,
+    "fmt": "webp",
+    "bytes": 12012
+  },
+  {
+    "src": "hero-mobile.webp",
+    "out": "hero-mobile-768.avif",
+    "width": 768,
+    "fmt": "avif",
+    "bytes": 20642
+  },
+  {
+    "src": "hero-mobile.webp",
+    "out": "hero-mobile-768.webp",
+    "width": 768,
+    "fmt": "webp",
+    "bytes": 23902
+  },
+  {
+    "src": "hero-mobile.webp",
+    "out": "hero-mobile-1080.avif",
+    "width": 1080,
+    "fmt": "avif",
+    "bytes": 31363
+  },
+  {
+    "src": "hero-mobile.webp",
+    "out": "hero-mobile-1080.webp",
+    "width": 1080,
+    "fmt": "webp",
+    "bytes": 38344
+  },
+  {
+    "src": "hero-desktop.webp",
+    "out": "hero-desktop-1024.avif",
+    "width": 1024,
+    "fmt": "avif",
+    "bytes": 28626
+  },
+  {
+    "src": "hero-desktop.webp",
+    "out": "hero-desktop-1024.webp",
+    "width": 1024,
+    "fmt": "webp",
+    "bytes": 32388
+  },
+  {
+    "src": "hero-desktop.webp",
+    "out": "hero-desktop-1440.avif",
+    "width": 1440,
+    "fmt": "avif",
+    "bytes": 45364
+  },
+  {
+    "src": "hero-desktop.webp",
+    "out": "hero-desktop-1440.webp",
+    "width": 1440,
+    "fmt": "webp",
+    "bytes": 53156
+  },
+  {
+    "src": "hero-desktop.webp",
+    "out": "hero-desktop-1920.avif",
+    "width": 1920,
+    "fmt": "avif",
+    "bytes": 63991
+  },
+  {
+    "src": "hero-desktop.webp",
+    "out": "hero-desktop-1920.webp",
+    "width": 1920,
+    "fmt": "webp",
+    "bytes": 77458
+  },
+  {
+    "src": "operations-room.webp",
+    "out": "operations-room-768.avif",
+    "width": 768,
+    "fmt": "avif",
+    "bytes": 30188
+  },
+  {
+    "src": "operations-room.webp",
+    "out": "operations-room-768.webp",
+    "width": 768,
+    "fmt": "webp",
+    "bytes": 32680
+  },
+  {
+    "src": "operations-room.webp",
+    "out": "operations-room-1200.avif",
+    "width": 1200,
+    "fmt": "avif",
+    "bytes": 47206
+  },
+  {
+    "src": "operations-room.webp",
+    "out": "operations-room-1200.webp",
+    "width": 1200,
+    "fmt": "webp",
+    "bytes": 54312
+  },
+  {
+    "src": "operations-room.webp",
+    "out": "operations-room-1512.avif",
+    "width": 1512,
+    "fmt": "avif",
+    "bytes": 59944
+  },
+  {
+    "src": "operations-room.webp",
+    "out": "operations-room-1512.webp",
+    "width": 1512,
+    "fmt": "webp",
+    "bytes": 70834
+  },
+  {
+    "src": "logoagencia.png",
+    "out": "logoagencia-150.avif",
+    "width": 150,
+    "fmt": "avif",
+    "bytes": 4307
+  },
+  {
+    "src": "logoagencia.png",
+    "out": "logoagencia-150.webp",
+    "width": 150,
+    "fmt": "webp",
+    "bytes": 3494
+  },
+  {
+    "src": "logoagencia.png",
+    "out": "logoagencia-150.png",
+    "width": 150,
+    "fmt": "png",
+    "bytes": 2791
+  },
+  {
+    "src": "logoagencia.png",
+    "out": "logoagencia-300.avif",
+    "width": 300,
+    "fmt": "avif",
+    "bytes": 6045
+  },
+  {
+    "src": "logoagencia.png",
+    "out": "logoagencia-300.webp",
+    "width": 300,
+    "fmt": "webp",
+    "bytes": 8102
+  },
+  {
+    "src": "logoagencia.png",
+    "out": "logoagencia-300.png",
+    "width": 300,
+    "fmt": "png",
+    "bytes": 5175
+  },
+  {
+    "src": "logoagencia.png",
+    "out": "logoagencia-450.avif",
+    "width": 450,
+    "fmt": "avif",
+    "bytes": 8906
+  },
+  {
+    "src": "logoagencia.png",
+    "out": "logoagencia-450.webp",
+    "width": 450,
+    "fmt": "webp",
+    "bytes": 12676
+  },
+  {
+    "src": "logoagencia.png",
+    "out": "logoagencia-450.png",
+    "width": 450,
+    "fmt": "png",
+    "bytes": 7906
+  },
+  {
+    "src": "cover-team.webp",
+    "out": "cover-team-1200.webp",
+    "width": 1200,
+    "fmt": "webp",
+    "bytes": 50392
+  }
+]

@@ -23,15 +23,25 @@ export function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
                     {/* Logo & Info */}
                     <div className="md:col-span-1">
-                        <img
-                            src="/logoagencia.png"
-                            alt="Bforense"
-                            className="h-9 w-auto opacity-90 mb-4"
-                            width={362}
-                            height={96}
-                            loading="lazy"
-                            decoding="async"
-                        />
+                        <picture>
+                            <source
+                                type="image/avif"
+                                srcSet="/img/logoagencia-150.avif 1x, /img/logoagencia-300.avif 2x, /img/logoagencia-450.avif 3x"
+                            />
+                            <source
+                                type="image/webp"
+                                srcSet="/img/logoagencia-150.webp 1x, /img/logoagencia-300.webp 2x, /img/logoagencia-450.webp 3x"
+                            />
+                            <img
+                                src="/img/logoagencia-300.png"
+                                alt="Bforense"
+                                className="h-9 w-auto opacity-90 mb-4"
+                                width={169}
+                                height={36}
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </picture>
                         <p className="text-text-muted text-sm leading-relaxed">
                             Agência de investigações privada com atuação nacional.
                         </p>

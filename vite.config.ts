@@ -2,9 +2,19 @@
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
+import { visualizer } from "rollup-plugin-visualizer";
 
 export default defineConfig({
-    plugins: [react(), tailwindcss()],
+    plugins: [
+        react(),
+        tailwindcss(),
+        visualizer({
+            filename: "dist/stats.html",
+            gzipSize: true,
+            brotliSize: true,
+            template: "treemap",
+        }),
+    ],
     server: {
         port: parseInt(process.env.PORT || "3001"),
         host: true,
@@ -15,6 +25,8 @@ export default defineConfig({
         target: "es2020",
         cssMinify: true,
         minify: "terser",
+        cssCodeSplit: true,
+        reportCompressedSize: false,
         terserOptions: {
             compress: {
                 drop_console: true,
@@ -25,7 +37,8 @@ export default defineConfig({
         rollupOptions: {
             output: {
                 manualChunks: {
-                    "react-vendor": ["react", "react-dom"],
+                    "router": ["react-router-dom"],
+                    "motion": ["framer-motion"],
                 },
             },
             treeshake: {

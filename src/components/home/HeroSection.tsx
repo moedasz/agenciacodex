@@ -21,32 +21,56 @@ export function HeroSection() {
 
             {isDesktop ? (
                 <div className="hero-desktop-image" aria-hidden="true">
-                    <img
-                        src="/hero-desktop.webp"
-                        alt=""
-                        className="hero-desktop-img"
-                        loading="eager"
-                        decoding="async"
-                        fetchPriority="high"
-                        width={1664}
-                        height={2496}
-                    />
+                    <picture>
+                        <source
+                            type="image/avif"
+                            srcSet="/img/hero-desktop-1024.avif 1024w, /img/hero-desktop-1440.avif 1440w, /img/hero-desktop-1920.avif 1920w"
+                            sizes="(min-width: 1280px) 68vw, (min-width: 768px) 65vw, 72vw"
+                        />
+                        <source
+                            type="image/webp"
+                            srcSet="/img/hero-desktop-1024.webp 1024w, /img/hero-desktop-1440.webp 1440w, /img/hero-desktop-1920.webp 1920w"
+                            sizes="(min-width: 1280px) 68vw, (min-width: 768px) 65vw, 72vw"
+                        />
+                        <img
+                            src="/img/hero-desktop-1440.webp"
+                            alt=""
+                            className="hero-desktop-img"
+                            loading="eager"
+                            decoding="async"
+                            fetchPriority="high"
+                            width={1440}
+                            height={958}
+                        />
+                    </picture>
                     <div className="hero-img-fade-left" />
                     <div className="hero-img-fade-bottom" />
                     <div className="hero-img-fade-top" />
                 </div>
             ) : (
                 <div className="hero-mobile-media" aria-hidden="true">
-                    <img
-                        src="/hero-mobile.webp"
-                        alt=""
-                        className="hero-mobile-img"
-                        loading="eager"
-                        decoding="async"
-                        fetchPriority="high"
-                        width={1179}
-                        height={1806}
-                    />
+                    <picture>
+                        <source
+                            type="image/avif"
+                            srcSet="/img/hero-mobile-480.avif 480w, /img/hero-mobile-768.avif 768w, /img/hero-mobile-1080.avif 1080w"
+                            sizes="100vw"
+                        />
+                        <source
+                            type="image/webp"
+                            srcSet="/img/hero-mobile-480.webp 480w, /img/hero-mobile-768.webp 768w, /img/hero-mobile-1080.webp 1080w"
+                            sizes="100vw"
+                        />
+                        <img
+                            src="/img/hero-mobile-768.webp"
+                            alt=""
+                            className="hero-mobile-img"
+                            loading="eager"
+                            decoding="async"
+                            fetchPriority="high"
+                            width={768}
+                            height={1376}
+                        />
+                    </picture>
                     <div className="hero-mobile-overlay" />
                 </div>
             )}

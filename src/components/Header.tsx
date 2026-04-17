@@ -48,14 +48,25 @@ export function Header() {
                 <div className="flex items-center justify-between h-16 sm:h-18">
                     {/* Logo */}
                     <Link to="/" className="flex-shrink-0">
-                        <img
-                            src="/logoagencia.png"
-                            alt="Bforense"
-                            className="h-8 sm:h-10 w-auto"
-                            width={362}
-                            height={96}
-                            decoding="async"
-                        />
+                        <picture>
+                            <source
+                                type="image/avif"
+                                srcSet="/img/logoagencia-150.avif 1x, /img/logoagencia-300.avif 2x, /img/logoagencia-450.avif 3x"
+                            />
+                            <source
+                                type="image/webp"
+                                srcSet="/img/logoagencia-150.webp 1x, /img/logoagencia-300.webp 2x, /img/logoagencia-450.webp 3x"
+                            />
+                            <img
+                                src="/img/logoagencia-300.png"
+                                alt="Bforense"
+                                className="h-8 sm:h-10 w-auto"
+                                width={188}
+                                height={40}
+                                decoding="async"
+                                fetchPriority="high"
+                            />
+                        </picture>
                     </Link>
 
                     {/* Desktop Nav - hidden on Home for conversion focus */}

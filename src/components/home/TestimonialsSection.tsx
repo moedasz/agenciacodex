@@ -33,14 +33,21 @@ function TestimonialCard({ testimonial }: { testimonial: HomeTestimonial }) {
                         style={{ marginTop: "-3px" }}
                         aria-hidden="true"
                     >
-                        <img
-                            src={testimonial.avatar}
-                            alt=""
-                            aria-hidden="true"
-                            loading="lazy"
-                            className="w-full h-full object-cover"
-                            style={{ filter: "blur(3px) brightness(0.8)", transform: "scale(1.15)" }}
-                        />
+                        <picture>
+                            <source type="image/avif" srcSet={`${testimonial.avatar}.avif`} />
+                            <source type="image/webp" srcSet={`${testimonial.avatar}.webp`} />
+                            <img
+                                src={`${testimonial.avatar}.webp`}
+                                alt=""
+                                aria-hidden="true"
+                                loading="lazy"
+                                decoding="async"
+                                width={44}
+                                height={44}
+                                className="w-full h-full object-cover"
+                                style={{ filter: "blur(3px) brightness(0.8)", transform: "scale(1.15)" }}
+                            />
+                        </picture>
                     </div>
                     <div>
                         <p className="text-[#ECE0E0] text-sm font-semibold">{testimonial.name}</p>

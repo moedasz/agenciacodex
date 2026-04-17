@@ -31,9 +31,53 @@
   <meta name="twitter:description" content="Investigação particular profissional. Resolva suas dúvidas com quem já solucionou mais de 255 casos em todo o Brasil. Orçamento pelo WhatsApp." />
   <meta name="twitter:image" content="https://www.agenciaprivada.tech/cover-team.webp" />
 
-  <!-- Preload LCP image (WebP) -->
-  <link rel="preload" as="image" type="image/webp" href="/hero-mobile.webp" media="(max-width: 767px)" />
-  <link rel="preload" as="image" type="image/webp" href="/hero-desktop.webp" media="(min-width: 768px)" />
+  <!-- Preconnect third parties used for analytics/tracking -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+  <link rel="preconnect" href="https://connect.facebook.net" crossorigin />
+  <link rel="dns-prefetch" href="https://www.facebook.com" />
+
+  <!-- Preload LCP image (responsive AVIF with WebP fallback) -->
+  <link
+    rel="preload"
+    as="image"
+    type="image/avif"
+    href="/img/hero-mobile-768.avif"
+    imagesrcset="/img/hero-mobile-480.avif 480w, /img/hero-mobile-768.avif 768w, /img/hero-mobile-1080.avif 1080w"
+    imagesizes="100vw"
+    fetchpriority="high"
+    media="(max-width: 767px)"
+  />
+  <link
+    rel="preload"
+    as="image"
+    type="image/webp"
+    href="/img/hero-mobile-768.webp"
+    imagesrcset="/img/hero-mobile-480.webp 480w, /img/hero-mobile-768.webp 768w, /img/hero-mobile-1080.webp 1080w"
+    imagesizes="100vw"
+    fetchpriority="high"
+    media="(max-width: 767px)"
+  />
+  <link
+    rel="preload"
+    as="image"
+    type="image/avif"
+    href="/img/hero-desktop-1440.avif"
+    imagesrcset="/img/hero-desktop-1024.avif 1024w, /img/hero-desktop-1440.avif 1440w, /img/hero-desktop-1920.avif 1920w"
+    imagesizes="(min-width: 1280px) 68vw, (min-width: 768px) 65vw, 72vw"
+    fetchpriority="high"
+    media="(min-width: 768px)"
+  />
+  <link
+    rel="preload"
+    as="image"
+    type="image/webp"
+    href="/img/hero-desktop-1440.webp"
+    imagesrcset="/img/hero-desktop-1024.webp 1024w, /img/hero-desktop-1440.webp 1440w, /img/hero-desktop-1920.webp 1920w"
+    imagesizes="(min-width: 1280px) 68vw, (min-width: 768px) 65vw, 72vw"
+    fetchpriority="high"
+    media="(min-width: 768px)"
+  />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/favicon.png" />

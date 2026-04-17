@@ -36,3 +36,9 @@ preview.log
 # Test / coverage
 coverage/
 .nyc_output/
+
+# Lighthouse local runs
+.lh-tmp/
+.lh-chrome/
+lighthouse-mobile*
+lighthouse-desktop*

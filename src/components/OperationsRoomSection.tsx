@@ -11,14 +11,26 @@ export function OperationsRoomSection() {
         <section className="ops-room-section">
             <div className="ops-room-inner">
                 <div className="ops-room-media">
-                    <img
-                        src="/operations-room.webp"
-                        alt="Sala de operações da Bforense em Porto Alegre, equipe monitorando painéis de inteligência"
-                        loading="lazy"
-                        decoding="async"
-                        width={1512}
-                        height={1024}
-                    />
+                    <picture>
+                        <source
+                            type="image/avif"
+                            srcSet="/img/operations-room-768.avif 768w, /img/operations-room-1200.avif 1200w, /img/operations-room-1512.avif 1512w"
+                            sizes="(min-width: 1024px) 50vw, 100vw"
+                        />
+                        <source
+                            type="image/webp"
+                            srcSet="/img/operations-room-768.webp 768w, /img/operations-room-1200.webp 1200w, /img/operations-room-1512.webp 1512w"
+                            sizes="(min-width: 1024px) 50vw, 100vw"
+                        />
+                        <img
+                            src="/img/operations-room-1200.webp"
+                            alt="Sala de operações da Bforense em Porto Alegre, equipe monitorando painéis de inteligência"
+                            loading="lazy"
+                            decoding="async"
+                            width={1200}
+                            height={800}
+                        />
+                    </picture>
                     <div className="ops-room-media-overlay" aria-hidden />
                     <div className="ops-room-media-grid" aria-hidden />
                     <span className="ops-room-crop ops-room-crop-tl" aria-hidden />
