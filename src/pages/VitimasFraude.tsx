@@ -168,14 +168,9 @@ function HeroSection() {
                     <span className="text-gold-accent">Podemos descobrir quem está por trás.</span>
                 </h1>
 
-                <p className="text-[#B8A8A8] text-base sm:text-lg max-w-2xl leading-[1.65] mb-8">
-                    Plataformas fake, pirâmides, golpes de criptomoedas, opções binárias, Pix e
-                    consórcios fantasma. Investigação e inteligência cibernética para identificar o
-                    operador real, rastrear o dinheiro e localizar os bens — conduzindo o caso do
-                    início ao fim.{" "}
-                    <span className="text-text-primary">
-                        Quando o caminho é feito direito, a recuperação vira consequência natural.
-                    </span>
+                <p className="text-[#B8A8A8] text-base sm:text-lg max-w-xl leading-[1.55] mb-8">
+                    Identificamos o responsável. Rastreamos o dinheiro. Localizamos os bens.{" "}
+                    <span className="text-text-primary">A recuperação vem depois.</span>
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3 sm:items-center mb-6">
