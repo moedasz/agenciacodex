@@ -14,6 +14,8 @@ import {
 } from "lucide-react";
 import { Seo } from "../components/Seo";
 import { WhatsAppIcon } from "../components/WhatsAppIcon";
+import { NetworkBackground } from "../components/NetworkBackground";
+import { useIsDesktop } from "../hooks/useIsDesktop";
 import {
     BUSINESS_NAME,
     BUSINESS_PHONE_DISPLAY,
@@ -138,65 +140,124 @@ const JSON_LD = {
 };
 
 function HeroSection() {
+    const isDesktop = useIsDesktop();
+
     return (
-        <section className="relative overflow-hidden" style={{ background: "#0F0A0A" }}>
-            <div
-                className="absolute inset-0 pointer-events-none"
-                aria-hidden
-                style={{
-                    background:
-                        "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(192,57,43,0.18), transparent 60%), radial-gradient(ellipse 60% 40% at 20% 90%, rgba(192,57,43,0.08), transparent 70%)",
-                }}
-            />
+        <section className="hero-section relative min-h-screen overflow-hidden">
+            <div className="absolute inset-0 hero-gradient" />
+            <NetworkBackground />
             <div className="absolute inset-0 hero-grid-overlay pointer-events-none" aria-hidden />
-            <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-8 pt-28 pb-20 sm:pt-36 sm:pb-24">
-                <div className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full border border-[rgba(192,57,43,0.25)] bg-[rgba(192,57,43,0.06)]">
-                    <AlertTriangle className="w-3.5 h-3.5 text-gold" aria-hidden />
-                    <span className="text-xs text-gold uppercase tracking-[0.18em] font-medium">
-                        Para vítimas de golpes de investimento
-                    </span>
+
+            {isDesktop ? (
+                <div className="hero-desktop-image" aria-hidden>
+                    <picture>
+                        <source
+                            type="image/avif"
+                            srcSet="/img/hero-desktop-1024.avif 1024w, /img/hero-desktop-1440.avif 1440w, /img/hero-desktop-1920.avif 1920w"
+                            sizes="(min-width: 1280px) 68vw, (min-width: 768px) 65vw, 72vw"
+                        />
+                        <source
+                            type="image/webp"
+                            srcSet="/img/hero-desktop-1024.webp 1024w, /img/hero-desktop-1440.webp 1440w, /img/hero-desktop-1920.webp 1920w"
+                            sizes="(min-width: 1280px) 68vw, (min-width: 768px) 65vw, 72vw"
+                        />
+                        <img
+                            src="/img/hero-desktop-1440.webp"
+                            alt=""
+                            className="hero-desktop-img"
+                            loading="eager"
+                            decoding="async"
+                            fetchPriority="high"
+                            width={1440}
+                            height={958}
+                        />
+                    </picture>
+                    <div className="hero-img-fade-left" />
+                    <div className="hero-img-fade-bottom" />
+                    <div className="hero-img-fade-top" />
                 </div>
+            ) : (
+                <div className="hero-mobile-media" aria-hidden>
+                    <picture>
+                        <source
+                            type="image/avif"
+                            srcSet="/img/hero-mobile-480.avif 480w, /img/hero-mobile-768.avif 768w, /img/hero-mobile-1080.avif 1080w"
+                            sizes="100vw"
+                        />
+                        <source
+                            type="image/webp"
+                            srcSet="/img/hero-mobile-480.webp 480w, /img/hero-mobile-768.webp 768w, /img/hero-mobile-1080.webp 1080w"
+                            sizes="100vw"
+                        />
+                        <img
+                            src="/img/hero-mobile-768.webp"
+                            alt=""
+                            className="hero-mobile-img"
+                            loading="eager"
+                            decoding="async"
+                            fetchPriority="high"
+                            width={768}
+                            height={1376}
+                        />
+                    </picture>
+                    <div className="hero-mobile-overlay" />
+                </div>
+            )}
 
-                <h1
-                    className="font-heading text-[clamp(2rem,7vw,3.75rem)] leading-[1.02] text-text-primary mb-4"
-                    style={{ fontWeight: 600, letterSpacing: "-0.03em" }}
-                >
-                    Você foi vítima de fraude financeira?
-                </h1>
+            <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 min-h-[100svh] md:min-h-screen flex flex-col justify-start pt-20 md:justify-center md:pt-0">
+                <div className="md:max-w-[62%] lg:max-w-[58%]">
+                    <div className="inline-flex items-center gap-2 mb-5 md:mb-6 px-3 py-1.5 rounded-full border border-[rgba(192,57,43,0.25)] bg-[rgba(192,57,43,0.06)]">
+                        <AlertTriangle className="w-3.5 h-3.5 text-gold" aria-hidden />
+                        <span className="text-xs text-gold uppercase tracking-[0.18em] font-medium">
+                            Para vítimas de golpes de investimento
+                        </span>
+                    </div>
 
-                <p
-                    className="font-heading text-[clamp(1.25rem,3.5vw,1.875rem)] leading-[1.2] text-gold-accent mb-6"
-                    style={{ fontWeight: 500, letterSpacing: "-0.015em" }}
-                >
-                    Descobrimos quem está por trás e onde está o dinheiro.
-                </p>
-
-                <p className="text-[#B8A8A8] text-base sm:text-lg max-w-2xl leading-[1.6] mb-8">
-                    Identificamos a autoria das fraudes, rastreamos o fluxo de capital e
-                    criptoativos, e desvendamos a estrutura financeira oculta.{" "}
-                    <span className="text-text-primary">
-                        Viabilizamos a recuperação e conduzimos todo o processo sob absoluto
-                        sigilo, sem expor sua identidade.
-                    </span>
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-3 sm:items-center mb-6">
-                    <a
-                        href={buildWhatsAppUrl(WHATSAPP_MSG_HERO)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-primary text-base group inline-flex uppercase tracking-wide"
+                    <h1
+                        className="font-heading text-[clamp(1.875rem,7vw,3.5rem)] md:text-[clamp(2rem,5vw,3.5rem)] leading-[1.02] text-text-primary mb-4 md:mb-5"
+                        style={{ fontWeight: 600, letterSpacing: "-0.03em" }}
                     >
-                        <WhatsAppIcon className="w-5 h-5" />
-                        Quero resolver isso
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden />
-                    </a>
-                    <span className="text-text-muted text-sm">
-                        Resposta em até 10 minutos · Sigilo absoluto · Atendemos todo o Brasil
-                    </span>
-                </div>
+                        Você foi vítima de fraude financeira?
+                    </h1>
 
+                    <p
+                        className="font-heading text-[clamp(1.125rem,3.5vw,1.75rem)] md:text-[clamp(1.25rem,2.5vw,1.875rem)] leading-[1.2] text-gold-accent mb-5 md:mb-6"
+                        style={{ fontWeight: 500, letterSpacing: "-0.015em" }}
+                    >
+                        Descobrimos quem está por trás e onde está o dinheiro.
+                    </p>
+
+                    <p
+                        className="text-[#B8A8A8] text-[0.95rem] md:text-base lg:text-lg max-w-xl mb-7 md:mb-8"
+                        style={{ lineHeight: 1.6 }}
+                    >
+                        Identificamos a autoria das fraudes, rastreamos o fluxo de capital e
+                        criptoativos, e desvendamos a estrutura financeira oculta.{" "}
+                        <span className="text-text-primary">
+                            Viabilizamos a recuperação e conduzimos todo o processo sob absoluto
+                            sigilo, sem expor sua identidade.
+                        </span>
+                    </p>
+
+                    <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
+                        <a
+                            href={buildWhatsAppUrl(WHATSAPP_MSG_HERO)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-primary text-base group inline-flex uppercase tracking-wide"
+                        >
+                            <WhatsAppIcon className="w-5 h-5" />
+                            Quero resolver isso
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden />
+                        </a>
+                        <span className="text-text-muted text-sm">
+                            Resposta em até 10 minutos · Sigilo absoluto
+                        </span>
+                    </div>
+                </div>
             </div>
+
+            <div className="absolute bottom-0 left-0 right-0 h-20 md:h-32 bg-gradient-to-t from-[#000000] to-transparent z-20 pointer-events-none" />
         </section>
     );
 }
