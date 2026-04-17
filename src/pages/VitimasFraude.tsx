@@ -432,6 +432,68 @@ function TestimonialsSection() {
     );
 }
 
+function OperationsSection() {
+    return (
+        <section className="px-6 sm:px-8 py-20 sm:py-24 bg-surface-alt">
+            <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1.35fr_1fr] gap-10 lg:gap-14 items-center">
+                <div className="relative rounded-2xl overflow-hidden border border-border-subtle order-2 lg:order-1">
+                    <picture>
+                        <source
+                            type="image/avif"
+                            srcSet="/img/operations-room-768.avif 768w, /img/operations-room-1200.avif 1200w, /img/operations-room-1512.avif 1512w"
+                            sizes="(min-width: 1024px) 58vw, 100vw"
+                        />
+                        <source
+                            type="image/webp"
+                            srcSet="/img/operations-room-768.webp 768w, /img/operations-room-1200.webp 1200w, /img/operations-room-1512.webp 1512w"
+                            sizes="(min-width: 1024px) 58vw, 100vw"
+                        />
+                        <img
+                            src="/img/operations-room-1200.webp"
+                            alt="Sala de operações da Bforense em Porto Alegre, equipe de inteligência cibernética monitorando painéis em tempo real"
+                            loading="lazy"
+                            decoding="async"
+                            width={1200}
+                            height={800}
+                            className="w-full h-auto block"
+                        />
+                    </picture>
+                    <div
+                        className="absolute inset-0 pointer-events-none"
+                        aria-hidden
+                        style={{
+                            background:
+                                "linear-gradient(180deg, rgba(15,10,10,0) 55%, rgba(15,10,10,0.35) 100%)",
+                        }}
+                    />
+                    <div className="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[rgba(15,10,10,0.7)] backdrop-blur-sm border border-[rgba(192,57,43,0.35)]">
+                        <span
+                            className="w-2 h-2 rounded-full bg-gold"
+                            style={{ boxShadow: "0 0 8px rgba(192,57,43,0.8)" }}
+                            aria-hidden
+                        />
+                        <span className="text-[0.65rem] uppercase tracking-[0.2em] font-semibold text-gold">
+                            Live · Todo o Brasil
+                        </span>
+                    </div>
+                </div>
+
+                <div className="order-1 lg:order-2">
+                    <span className="section-label">Nossa operação</span>
+                    <h2 className="font-heading text-2xl sm:text-3xl text-text-primary leading-[1.15]">
+                        Operações centralizadas a partir de{" "}
+                        <span className="text-gold-accent">Porto Alegre (RS).</span>
+                    </h2>
+                    <p className="text-text-secondary text-base sm:text-lg mt-5 leading-[1.6] max-w-lg">
+                        Inteligência cibernética e atuação tática sigilosa em todo o território
+                        nacional.
+                    </p>
+                </div>
+            </div>
+        </section>
+    );
+}
+
 function FinalCta() {
     return (
         <section
@@ -494,6 +556,8 @@ export function VitimasFraude() {
                 <WhatWeDoSection />
                 <div className="section-divider-glow" />
                 <TestimonialsSection />
+                <div className="section-divider-glow" />
+                <OperationsSection />
                 <div className="section-divider-glow" />
                 <FinalCta />
             </div>
