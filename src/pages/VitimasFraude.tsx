@@ -9,10 +9,8 @@ import {
     LineChart,
     Network,
     Search,
-    ShieldCheck,
     Target,
     TrendingUp,
-    UserX,
 } from "lucide-react";
 import { Seo } from "../components/Seo";
 import { WhatsAppIcon } from "../components/WhatsAppIcon";
@@ -198,21 +196,6 @@ function HeroSection() {
                     </span>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-4 sm:gap-6 mt-10 pt-6 border-t border-[rgba(255,255,255,0.06)]">
-                    {[
-                        { icon: ShieldCheck, label: "Lei 13.432/2017" },
-                        { icon: UserX, label: "+255 casos resolvidos" },
-                        { icon: Landmark, label: "São Paulo · Porto Alegre" },
-                    ].map((t) => (
-                        <span
-                            key={t.label}
-                            className="inline-flex items-center gap-2 text-[#8A7A7A] text-xs sm:text-sm"
-                        >
-                            <t.icon className="w-4 h-4 text-gold" strokeWidth={1.6} aria-hidden />
-                            {t.label}
-                        </span>
-                    ))}
-                </div>
             </div>
         </section>
     );
