@@ -17,6 +17,9 @@ const Contato = lazy(() => import("./pages/Contato").then((module) => ({ default
 const Blog = lazy(() => import("./pages/Blog").then((module) => ({ default: module.Blog })));
 const BlogPost = lazy(() => import("./pages/BlogPost").then((module) => ({ default: module.BlogPost })));
 const NotFound = lazy(() => import("./pages/NotFound").then((module) => ({ default: module.NotFound })));
+const VitimasFraude = lazy(() =>
+    import("./pages/VitimasFraude").then((module) => ({ default: module.VitimasFraude })),
+);
 
 function RouteFallback() {
     return <div className="min-h-[40vh]" aria-hidden="true" />;
@@ -41,6 +44,7 @@ export default function App() {
                     <Route path="/contato" element={withSuspense(<Contato />)} />
                     <Route path="/blog" element={withSuspense(<Blog />)} />
                     <Route path="/blog/:slug" element={withSuspense(<BlogPost />)} />
+                    <Route path="/vitimas-de-fraude" element={withSuspense(<VitimasFraude />)} />
                     <Route path="*" element={withSuspense(<NotFound />)} />
                 </Route>
             </Routes>
