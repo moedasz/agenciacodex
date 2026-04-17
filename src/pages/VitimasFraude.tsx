@@ -155,22 +155,31 @@ function HeroSection() {
                 <div className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full border border-[rgba(192,57,43,0.25)] bg-[rgba(192,57,43,0.06)]">
                     <AlertTriangle className="w-3.5 h-3.5 text-gold" aria-hidden />
                     <span className="text-xs text-gold uppercase tracking-[0.18em] font-medium">
-                        Para quem perdeu dinheiro em golpe de investimento
+                        Para vítimas de golpes de investimento
                     </span>
                 </div>
 
                 <h1
-                    className="font-heading text-[clamp(2rem,7vw,3.75rem)] leading-[1.02] text-text-primary mb-6"
+                    className="font-heading text-[clamp(2rem,7vw,3.75rem)] leading-[1.02] text-text-primary mb-4"
                     style={{ fontWeight: 600, letterSpacing: "-0.03em" }}
                 >
                     Você foi vítima de fraude financeira?
-                    <br />
-                    <span className="text-gold-accent">Podemos descobrir quem está por trás.</span>
                 </h1>
 
-                <p className="text-[#B8A8A8] text-base sm:text-lg max-w-xl leading-[1.55] mb-8">
-                    Identificamos o responsável. Rastreamos o dinheiro. Localizamos os bens.{" "}
-                    <span className="text-text-primary">A recuperação vem depois.</span>
+                <p
+                    className="font-heading text-[clamp(1.25rem,3.5vw,1.875rem)] leading-[1.2] text-gold-accent mb-6"
+                    style={{ fontWeight: 500, letterSpacing: "-0.015em" }}
+                >
+                    Descobrimos quem está por trás e onde está o dinheiro.
+                </p>
+
+                <p className="text-[#B8A8A8] text-base sm:text-lg max-w-2xl leading-[1.6] mb-8">
+                    Identificamos a autoria das fraudes, rastreamos o fluxo de capital e
+                    criptoativos, e desvendamos a estrutura financeira oculta.{" "}
+                    <span className="text-text-primary">
+                        Viabilizamos a recuperação e conduzimos todo o processo sob absoluto
+                        sigilo, sem expor sua identidade.
+                    </span>
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3 sm:items-center mb-6">
@@ -178,10 +187,10 @@ function HeroSection() {
                         href={buildWhatsAppUrl(WHATSAPP_MSG_HERO)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn-primary text-base group inline-flex"
+                        className="btn-primary text-base group inline-flex uppercase tracking-wide"
                     >
                         <WhatsAppIcon className="w-5 h-5" />
-                        Avaliar meu caso no WhatsApp
+                        Quero resolver isso
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden />
                     </a>
                     <span className="text-text-muted text-sm">
