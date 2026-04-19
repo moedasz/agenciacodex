@@ -20,6 +20,9 @@ const NotFound = lazy(() => import("./pages/NotFound").then((module) => ({ defau
 const VitimasFraude = lazy(() =>
     import("./pages/VitimasFraude").then((module) => ({ default: module.VitimasFraude })),
 );
+const Diagnostico = lazy(() =>
+    import("./pages/Diagnostico").then((module) => ({ default: module.Diagnostico })),
+);
 
 function RouteFallback() {
     return <div className="min-h-[40vh]" aria-hidden="true" />;
@@ -35,6 +38,7 @@ export default function App() {
             <AnalyticsTracker />
             <ScrollToTop />
             <Routes>
+                <Route path="/diagnostico" element={withSuspense(<Diagnostico />)} />
                 <Route element={<Layout />}>
                     <Route path="/" element={withSuspense(<Home />)} />
                     <Route path="/servicos" element={withSuspense(<Servicos />)} />
